@@ -20,7 +20,7 @@ const componentMap = {
 
 export default function ComposablePage({ page }) {
   return (
-    <div>
+    <div data-sb-object-id={page.id}>
       {(page.sections || []).map((section, idx) => {
         const Component = componentMap[section.type];
         return <Component key={idx} {...section} />;

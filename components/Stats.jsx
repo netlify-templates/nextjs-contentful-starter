@@ -7,11 +7,16 @@ const themeClassMap = {
 
 export const Stats = (props) => {
   return (
-    <div className={`py-24 px-12 text-center ${themeClassMap[props.theme] ?? themeClassMap['primary']}`}>
+    <div
+      className={`py-24 px-12 text-center ${themeClassMap[props.theme] ?? themeClassMap['primary']}`}
+      data-sb-object-id={props.id}
+    >
       <div className="mx-auto">
         <div className="mb-16">
-          <h2 className="mb-4 text-4xl font-bold sm:text-5xl">{props.heading}</h2>
-          <Markdown options={{ forceBlock: true }} className="sm:text-lg">
+          <h2 className="mb-4 text-4xl font-bold sm:text-5xl" data-sb-field-path="heading">
+            {props.heading}
+          </h2>
+          <Markdown options={{ forceBlock: true }} className="sm:text-lg" data-sb-field-path="body">
             {props.body}
           </Markdown>
         </div>
@@ -25,9 +30,11 @@ export const Stats = (props) => {
 
 const StatItem = (props) => {
   return (
-    <div>
-      <div className="mb-3 text-4xl font-bold sm:text-5xl">{props.value}</div>
-      <div>{props.label}</div>
+    <div data-sb-object-id={props.id}>
+      <div className="mb-3 text-4xl font-bold sm:text-5xl" data-sb-field-path="value">
+        {props.value}
+      </div>
+      <div data-sb-field-path="label">{props.label}</div>
     </div>
   );
 };
