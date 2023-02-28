@@ -27,8 +27,8 @@ export const Hero = (props) => {
             <Image
               src={props.image.src}
               alt={props.image.alt}
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'contain' }}
               data-sb-field-path="image"
             />
           )}
