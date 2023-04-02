@@ -2,6 +2,9 @@
 
 const path = require('path');
 const contentfulImport = require('contentful-import');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const managementToken = process.env.CONTENTFUL_MANAGEMENT_TOKEN || process.argv[2];
 const spaceId = process.env.CONTENTFUL_SPACE_ID || process.argv[3];
