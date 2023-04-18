@@ -21,7 +21,7 @@ export const Stats = (props) => {
           </Markdown>}
         </div>
         <div className="grid max-w-3xl gap-12 mx-auto sm:grid-cols-3">
-          {(props.stats ?? []).length > 0 && props.stats.map((stat, idx) => <StatItem key={idx} {...stat} />)}
+          {(props.stats || []).map((stat, idx) => <StatItem key={idx} {...stat} />)}
         </div>
       </div>
     </div>
