@@ -14,14 +14,14 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@stackbit/cms-contentful": "^0.4.12",
-    "@stackbit/types": "^0.10.2",
-    "autoprefixer": "^10.4.15",
+    "@stackbit/cms-contentful": "^0.4.13",
+    "@stackbit/types": "^0.10.3",
+    "autoprefixer": "^10.4.16",
     "contentful-import": "^9.0.12",
     "dotenv": "^16.3.1",
     "eslint": "^8.46.0",
     "eslint-config-next": "^13.4.12",
-    "postcss": "^8.4.29",
+    "postcss": "^8.4.30",
     "tailwindcss": "^3.3.3"
   }
 }
