@@ -1,5 +1,6 @@
 import { Hero } from '../components/Hero.jsx';
 import { Stats } from '../components/Stats.jsx';
+import { Testimonial } from '../components/Testimonial.jsx';
 import { getPageFromSlug, getPagePaths } from '../utils/content.js';
 
 export async function getStaticPaths() {
@@ -16,6 +17,7 @@ export async function getStaticProps({ params }) {
 const componentMap = {
   hero: Hero,
   stats: Stats,
+  pageTestimonial: Testimonial
 };
 
 export default function ComposablePage({ page }) {

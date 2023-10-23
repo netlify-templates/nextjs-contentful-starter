@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next b  uild",
     "start": "next start"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^4.41.1",
     "markdown-to-jsx": "^7.2.1",
     "next": "^13.4.19",
     "react": "^18.2.0",
