@@ -3,7 +3,7 @@ import { ContentfulContentSource } from '@stackbit/cms-contentful';
 const config = {
   stackbitVersion: '~0.6.0',
   ssgName: 'nextjs',
-  nodeVersion: '16',
+  nodeVersion: '18',
   contentSources: [
     new ContentfulContentSource({
       spaceId: process.env.CONTENTFUL_SPACE_ID,
