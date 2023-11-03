@@ -9,15 +9,15 @@
   },
   "dependencies": {
     "markdown-to-jsx": "^7.3.2",
-    "next": "14.0.0",
+    "next": "14.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@stackbit/cms-contentful": "^0.4.21",
-    "@stackbit/types": "^0.10.11",
+    "@stackbit/cms-contentful": "^0.4.22",
+    "@stackbit/types": "^0.10.12",
     "autoprefixer": "^10.4.16",
-    "contentful-import": "^9.4.5",
+    "contentful-import": "^9.4.6",
     "dotenv": "^16.3.1",
     "eslint": "^8.46.0",
     "eslint-config-next": "^13.4.12",
