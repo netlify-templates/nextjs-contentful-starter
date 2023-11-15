@@ -9,13 +9,13 @@
   },
   "dependencies": {
     "markdown-to-jsx": "^7.3.2",
-    "next": "14.0.1",
+    "next": "14.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@stackbit/cms-contentful": "^0.4.23",
-    "@stackbit/types": "^0.10.13",
+    "@stackbit/cms-contentful": "^0.4.24",
+    "@stackbit/types": "^0.10.14",
     "autoprefixer": "^10.4.16",
     "contentful-import": "^9.4.8",
     "dotenv": "^16.3.1",
