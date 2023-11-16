@@ -3,32 +3,33 @@ import Image from 'next/image';
 import { Button } from './Button.jsx';
 
 const themeClassMap = {
-  imgLeft: 'flex-row-reverse',
-  imgRight: '',
+  imgLeft: 'md:flex-row-reverse',
+  imgRight: 'md:flex-row',
 };
 
 export const Hero = (props) => {
   return (
-    <div className="px-12 py-24 bg-gray-100" data-sb-object-id={props.id}>
-      <div className={`flex mx-auto max-w-6xl gap-12 ${themeClassMap[props.theme] ?? themeClassMap['imgRight']}`}>
-        <div className="max-w-xl py-20 mx-auto lg:shrink-0">
-          <h1 className="mb-6 text-5xl font-bold" data-sb-field-path="heading">
+    <div className="px-6 py-16 bg-gray-100 sm:px-12 sm:py-24" data-sb-object-id={props.id}>
+      <div className={`max-w-6xl mx-auto flex flex-col gap-12 md:items-center ${themeClassMap[props.theme] ?? themeClassMap['imgRight']}`}>
+        <div className="w-full max-w-xl mx-auto flex-1">
+          <h1 className="mb-6 text-4xl font-bold sm:text-5xl" data-sb-field-path="heading">
             {props.heading}
           </h1>
           {props.body && (
-            <Markdown options={{ forceBlock: true }} className="mb-4 text-lg" data-sb-field-path="body">
+            <Markdown options={{ forceBlock: true }} className="mb-6 text-lg" data-sb-field-path="body">
               {props.body}
             </Markdown>
           )}
           {props.button && <Button {...props.button} />}
         </div>
-        <div className="relative hidden w-full overflow-hidden rounded-md lg:block">
+        <div className="w-full aspect-[4/3] flex-1 relative overflow-hidden rounded-md">
           {props.image && (
             <Image
               src={props.image.src}
               alt={props.image.alt}
               fill
-              style={{ objectFit: 'contain' }}
+              className='object-cover'
+              sizes="(max-width: 767px) 100vw, 50vw"
               data-sb-field-path="image"
             />
           )}
