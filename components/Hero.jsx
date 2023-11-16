@@ -29,7 +29,7 @@ export const Hero = (props) => {
               alt={props.image.alt}
               fill
               className='object-cover'
-              sizes="(max-width: 767px) 100vw, 50vw"
+              sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 600px"
               data-sb-field-path="image"
             />
           )}
