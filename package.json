@@ -8,14 +8,14 @@
     "start": "next start"
   },
   "dependencies": {
-    "markdown-to-jsx": "^7.3.2",
+    "markdown-to-jsx": "^7.4.0",
     "next": "14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@stackbit/cms-contentful": "^0.4.30",
-    "@stackbit/types": "^0.10.19",
+    "@stackbit/cms-contentful": "^0.4.31",
+    "@stackbit/types": "^0.10.20",
     "autoprefixer": "^10.4.16",
     "contentful-import": "^9.4.8",
     "dotenv": "^16.3.1",
