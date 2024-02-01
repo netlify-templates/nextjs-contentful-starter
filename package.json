@@ -8,16 +8,16 @@
     "start": "next start"
   },
   "dependencies": {
-    "markdown-to-jsx": "^7.4.0",
+    "markdown-to-jsx": "^7.4.1",
     "next": "14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@stackbit/cms-contentful": "^0.4.35",
-    "@stackbit/types": "^0.10.24",
+    "@stackbit/cms-contentful": "^0.4.36",
+    "@stackbit/types": "^0.11.0",
     "autoprefixer": "^10.4.17",
-    "contentful-import": "^9.4.31",
+    "contentful-import": "^9.4.34",
     "dotenv": "^16.4.1",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.1.0",
