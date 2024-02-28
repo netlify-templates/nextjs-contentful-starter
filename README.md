@@ -1,14 +1,14 @@
-# Stackbit Next.js + Contentful Minimal Starter
+# Netlify Create Next.js + Contentful Minimal Starter
 
 ![Screenshot](https://assets.stackbit.com/docs/tutorial-shared-thumb.png)
 
-**ℹ️ This reposoitory is based on [our Getting Started tutorial](https://docs.stackbit.com/getting-started) in its completed state.**
+**ℹ️ This reposoitory is based on [our Getting Started tutorial](https://docs.netlify.com/create/get-started/nextjs-contentful/) in its completed state.**
 
 There are two ways to start using this project: importing it via the UI, or developing locally.
 
-## Creating a Stackbit Project via the UI
+## Creating a Netlify Create Project via the UI
 
-To create a cloud-based Stackbit project based on this repository, [click here](https://app.stackbit.com/import?mode=duplicate&repository=https%3A%2F%2Fgithub.com%2Fstackbit-themes%2Fnextjs-contentful-starter&validate=auto).
+To create a cloud-based Netlify Create project based on this repository, [click here](https://create.netlify.com/import?mode=duplicate&repository=https%3A%2F%2Fgithub.com%2Fstackbit-themes%2Fnextjs-contentful-starter&validate=auto).
 
 You will need to connect your Contentful account (create a free account if needed), and a new Contentful space with sample content will be created for you. 
 
@@ -23,7 +23,7 @@ Lastly, a live production build of the website on Netlify is automatically provi
 Before you begin, please make sure you have the following:
 
 - Contentful account
-- Node v14 or later
+- Node v18 or later
 
 ### Clone this repository
 
@@ -75,7 +75,7 @@ Run the Next.js development server:
 
 Visit [localhost:3000](http://localhost:3000) and you should see the example content you imported into your new Contentful space.
 
-### Run Stackbit in Local Development Mode
+### Run Netlify Create in Local Development Mode
 
 Keep the Next.js development server running, and open a new command-line window in the same directory.
 
@@ -89,13 +89,13 @@ Run the CLI:
 
 Click the displayed link to [localhost:8090/_stackbit](http://localhost:8090/_stackbit) and the visual editor will open.
 
-### Create a Cloud-Based Stackbit Project
+### Create a Cloud-Based Netlify Create Project
 
-To deploy a cloud-based Stackbit project connected to your repository:
+To deploy a cloud-based Netlify Create project connected to your repository:
 
 1. Push your code to a GitHub repository
-1. Open the [import page](https://app.stackbit.com/import) and choose *Use my repository*.
+1. Open the [import page](https://create.netlify.com/import) and choose *Use my repository*.
 
 ## Support
 
-If you get stuck along the way, [drop into our Discord server](https://discord.gg/HUNhjVkznH) and send a message in the `#documentation` or `#help` channels.
+If you get stuck along the way, get help in our [support forums](https://answers.netlify.com/).
