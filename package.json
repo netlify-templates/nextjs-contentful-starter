@@ -8,20 +8,20 @@
     "start": "next start"
   },
   "dependencies": {
-    "markdown-to-jsx": "^7.4.3",
-    "next": "14.1.3",
+    "markdown-to-jsx": "^7.4.6",
+    "next": "14.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@stackbit/cms-contentful": "^0.4.43",
-    "@stackbit/types": "^0.11.7",
-    "autoprefixer": "^10.4.18",
+    "@stackbit/cms-contentful": "^0.4.46",
+    "@stackbit/types": "^0.11.10",
+    "autoprefixer": "^10.4.19",
     "contentful-import": "^9.4.39",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.1.3",
-    "postcss": "^8.4.36",
-    "tailwindcss": "^3.4.1"
+    "eslint-config-next": "^14.1.4",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
   }
 }
