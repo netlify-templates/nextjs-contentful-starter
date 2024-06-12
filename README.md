@@ -4,30 +4,20 @@
 
 **ℹ️ This reposoitory is based on [our Getting Started tutorial](https://docs.netlify.com/create/get-started/nextjs-contentful/) in its completed state.**
 
-There are two ways to start using this project: importing it via the UI, or developing locally.
-
-## Creating a Netlify Create Project via the UI
-
-To create a cloud-based Netlify Create project based on this repository, [click here](https://create.netlify.com/import?mode=duplicate&repository=https%3A%2F%2Fgithub.com%2Fstackbit-themes%2Fnextjs-contentful-starter&validate=auto).
-
-You will need to connect your Contentful account (create a free account if needed), and a new Contentful space with sample content will be created for you. 
-
-A new GitHub repository with this codebase will be created for you. You can transfer ownership of the duplicated repository to you through the Project Settings.
-
-Lastly, a live production build of the website on Netlify is automatically provisioned.
-
-## Developing Locally 
-
-### Prerequisites
+## Prerequisites
 
 Before you begin, please make sure you have the following:
 
-- Contentful account
+- [Netlify account](https://www.netlify.com/)
+- [Contentful account](https://www.contentful.com/)
+- GitHub, GitLab or Bitbucket account
 - Node v18 or later
+
+## Getting Started
 
 ### Clone this repository
 
-Clone this repository, then run `npm install` in its root directory.
+Fork and clone your repository, then run `npm install` in its root directory.
 
 ### Create Contentful Space
 
@@ -91,10 +81,12 @@ Click the displayed link to [localhost:8090/_stackbit](http://localhost:8090/_st
 
 ### Create a Cloud-Based Netlify Create Project
 
-To deploy a cloud-based Netlify Create project connected to your repository:
+To deploy a cloud-based Netlify Create project your need to connected your repository to Netlify:
 
-1. Push your code to a GitHub repository
-1. Open the [import page](https://create.netlify.com/import) and choose *Use my repository*.
+1. If you haven't created your GitHub project repository, create it and push your code to GitHub
+2. Open the [app.netlify.com](https://app.netlify.com/), and choose "Import from Git" in the "Import an existing project" section
+3. In the "Configure site and deploy" step you will see the "Visual editor" section. To make it work, you will need to install "Netlify Visual Editor GitHub App" in your GitHub account.
+4. Deploy your project
 
 ## Support
 
