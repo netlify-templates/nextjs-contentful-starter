@@ -10,6 +10,7 @@ Before you begin, please make sure you have the following:
 - [Contentful account](https://www.contentful.com/)
 - GitHub, GitLab or Bitbucket account
 - Node v18+ or later
+- (optional) [nvm](https://github.com/nvm-sh/nvm) for Node version management.
 
 ## Getting Started
 
