@@ -1,8 +1,6 @@
-# Netlify Create Next.js + Contentful Minimal Starter
+# Netlify Next.js + Contentful Minimal Starter
 
 ![Screenshot](https://assets.stackbit.com/docs/tutorial-shared-thumb.png)
-
-**ℹ️ This reposoitory is based on [our Getting Started tutorial](https://docs.netlify.com/create/get-started/nextjs-contentful/) in its completed state.**
 
 ## Prerequisites
 
@@ -11,7 +9,8 @@ Before you begin, please make sure you have the following:
 - [Netlify account](https://www.netlify.com/)
 - [Contentful account](https://www.contentful.com/)
 - GitHub, GitLab or Bitbucket account
-- Node v18 or later
+- Node v18+ or later
+- (optional) [nvm](https://github.com/nvm-sh/nvm) for Node version management.
 
 ## Getting Started
 
@@ -65,7 +64,7 @@ Run the Next.js development server:
 
 Visit [localhost:3000](http://localhost:3000) and you should see the example content you imported into your new Contentful space.
 
-### Run Netlify Create in Local Development Mode
+### Run Netlify Visual Editor in Local Development Mode
 
 Keep the Next.js development server running, and open a new command-line window in the same directory.
 
@@ -79,14 +78,21 @@ Run the CLI:
 
 Click the displayed link to [localhost:8090/_stackbit](http://localhost:8090/_stackbit) and the visual editor will open.
 
-### Create a Cloud-Based Netlify Create Project
+### Create a Cloud-Based Netlify Project
 
-To deploy a cloud-based Netlify Create project your need to connected your repository to Netlify:
+To deploy a cloud-based Netlify project your need to connected your repository to Netlify:
 
 1. If you haven't created your GitHub project repository, create it and push your code to GitHub
 2. Open the [app.netlify.com](https://app.netlify.com/), and choose "Import from Git" in the "Import an existing project" section
 3. In the "Configure site and deploy" step you will see the "Visual editor" section. To make it work, you will need to install "Netlify Visual Editor GitHub App" in your GitHub account.
 4. Deploy your project
+
+## Next Steps
+
+Here are a few suggestions on what to do next if you're new to Netlify visual editor:
+
+- Learn [how Netlify visual editor works](https://docs.netlify.com/create/concepts/how-create-works/)
+- Check [Netlify visual editor reference documentation](https://visual-editor-reference.netlify.com/)
 
 ## Support
 
