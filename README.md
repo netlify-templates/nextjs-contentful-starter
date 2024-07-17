@@ -2,6 +2,8 @@
 
 ![Screenshot](https://assets.stackbit.com/docs/tutorial-shared-thumb.png)
 
+**⚡ View demo:** [nextjs-contentful-starter.netlify.app](https://nextjs-contentful-starter.netlify.app/)
+
 ## Prerequisites
 
 Before you begin, please make sure you have the following:
