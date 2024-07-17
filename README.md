@@ -2,6 +2,8 @@
 
 ![Screenshot](https://assets.stackbit.com/docs/tutorial-shared-thumb.png)
 
+**⚡ View demo:** [nextjs-contentful-starter.netlify.app](https://nextjs-contentful-starter.netlify.app/)
+
 ## Prerequisites
 
 Before you begin, please make sure you have the following:
@@ -13,6 +15,12 @@ Before you begin, please make sure you have the following:
 - (optional) [nvm](https://github.com/nvm-sh/nvm) for Node version management.
 
 ## Getting Started
+
+### Deploying to Netlify
+
+If you click "Deploy to Netlify" button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/nextjs-contentful-starter)
 
 ### Clone this repository
 
