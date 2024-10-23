@@ -54,7 +54,7 @@ Note: the Contentful space ID can be viewed and copied via *Settings->General Se
 
 Import the provided content models & content into Contentful by running the `import.js` script:
 
-    node ./contentful/import.js
+    npm run import
 
 If the import fails to run, make sure that you've run `npm install` and that all keys in your `.env` file are set correctly.
 
