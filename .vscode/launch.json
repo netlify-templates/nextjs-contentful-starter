@@ -1,0 +1,65 @@
+{
+    // Utilisez IntelliSense pour en savoir plus sur les attributs possibles.
+    // Pointez pour afficher la description des attributs existants.
+    // Pour plus d'informations, visitez : https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome",
+            "request": "launch",
+            "type": "chrome",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+        },
+
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Lancer Chrome en utilisant localhost",
+            "url": "http://localhost:8080",
+            "webRoot": "${workspaceFolder}"
+
+        }
+    ]
+}from PIL import Image
+
+# Define icon sizes
+icon_sizes = [(192, 192), (512, 512)]
+icon_colors = (255, 0, 0, 255)  # Red color with full opacity
+
+# Create icons with appropriate sizes and save them in the icons directory
+for size in icon_sizes:
+    icon_image = Image.new("RGBA", size, icon_colors)
+    icon_path = os.path.join(icons_dir, f"icon-{size[0]}x{size[1]}.png")
+    icon_image.save(icon_path, "PNG")
+
+# Re-create the ZIP file with the new icons
+zip_path = "/mnt/data/BeSafe_PWA_with_icons.zip"
+with zipfile.ZipFile(zip_path, 'w') as zip_file:
+    for foldername, subfolders, filenames in os.walk(project_dir):
+        for filename in filenames:
+            file_path = os.path.join(foldername, filename)
+            zip_file.write(file_path, os.path.relpath(file_path, project_dir))
+
+zip_pathfrom PIL import Image
+
+
+# Define icon sizes
+icon_sizes = [(192, 192), (512, 512)]
+icon_colors = (255, 0, 0, 255)  # Red color with full opacity
+
+# Create icons with appropriate sizes and save them in the icons directory
+for size in icon_sizes:
+    icon_image = Image.new("RGBA", size, icon_colors)
+    icon_path = os.path.join(icons_dir, f"icon-{size[0]}x{size[1]}.png")
+    icon_image.save(icon_path, "PNG")
+
+# Re-create the ZIP file with the new icons
+zip_path = "/mnt/data/BeSafe_PWA_with_icons.zip"
+with zipfile.ZipFile(zip_path, 'w') as zip_file:
+    for foldername, subfolders, filenames in os.walk(project_dir):
+        for filename in filenames:
+            file_path = os.path.join(foldername, filename)
+            zip_file.write(file_path, os.path.relpath(file_path, project_dir))
+
+zip_path
