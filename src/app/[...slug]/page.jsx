@@ -1,16 +1,24 @@
 import { notFound } from 'next/navigation';
 import { Hero } from '../../components/Hero.jsx';
-import { Stats } from '../../components/Stats.jsx';
 import { getPageFromSlug } from '../../utils/content.js';
+import NavLinks from '../../components/NavLinks.jsx';
+import Playground from '../../components/Playground.jsx';
+import ContentWithImage from '../../components/ContentWithImage.jsx';
+import Carousel from '../../components/Carousel.jsx';
+import Footer from '../../components/Footer.jsx';
 
 const componentMap = {
   hero: Hero,
-  stats: Stats,
+  navigation: NavLinks,
+  playground: Playground,
+  contentWithImage: ContentWithImage,
+  carousel: Carousel,
+  footer: Footer,
 };
 
 export default async function ComposablePage({ params }) {
   const { slug } = params;
-  
+
   const pageSlug = slug.join('/');
 
   try {
