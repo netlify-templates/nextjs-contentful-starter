@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 const ContentWithImage = ({ image, title, simpleContent, imageOnLeft }) => {
