@@ -6,6 +6,7 @@ import Playground from '../../components/Playground.jsx';
 import ContentWithImage from '../../components/ContentWithImage.jsx';
 import Carousel from '../../components/Carousel.jsx';
 import Footer from '../../components/Footer.jsx';
+import { Fallback } from '../../components/Fallback.jsx';
 
 const componentMap = {
   hero: Hero,
@@ -31,7 +32,7 @@ export default async function ComposablePage({ params }) {
     return (
       <div data-sb-object-id={page.id}>
         {(page.sections || []).map((section, idx) => {
-          const Component = componentMap[section.type];
+          const Component = componentMap[section.type] || Fallback;
           return <Component key={idx} {...section} />;
         })}
       </div>
