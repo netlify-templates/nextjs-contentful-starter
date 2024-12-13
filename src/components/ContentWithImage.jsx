@@ -4,10 +4,9 @@ import Image from 'next/image';
 
 const ContentWithImage = ({ image, title, simpleContent, imageOnLeft }) => {
   return (
-    <div className="py-8 bg-gray-50 shadow-lg rounded-lg">
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl font-semibold text-center text-gray-800 mb-8">{title}</h2>
-        <div className="flex flex-col md:flex-row items-center">
+    <div className="py-8">
+      <div className="mx-auto w-full">
+        <div className="flex flex-col md:flex-row w-full items-center">
           {imageOnLeft ? (
             <>
               <div className="md:w-1/2 p-4">
@@ -21,13 +20,15 @@ const ContentWithImage = ({ image, title, simpleContent, imageOnLeft }) => {
                 />
               </div>
               <div className="md:w-1/2 p-4">
-                <p className="text-lg text-gray-700">{simpleContent}</p>
+                <h2 className="text-4xl text-left mb-8 text-gray-100">{title}</h2>
+                <p className="text-lg font-light text-gray-300">{simpleContent}</p>
               </div>
             </>
           ) : (
             <>
               <div className="md:w-1/2 p-4">
-                <p className="text-lg text-gray-700">{simpleContent}</p>
+                <h2 className="text-4xl text-left mb-8 text-gray-100">{title}</h2>
+                <p className="text-lg font-light text-gray-300">{simpleContent}</p>
               </div>
               <div className="md:w-1/2 p-4">
                 <Image

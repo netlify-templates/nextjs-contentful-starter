@@ -50,14 +50,6 @@ Fill in the values in the file based on the keys you've created.
 
 Note: the Contentful space ID can be viewed and copied via *Settings->General Settings* in Contentful.
 
-### Import Content
-
-Import the provided content models & content into Contentful by running the `import.js` script:
-
-    npm run import
-
-If the import fails to run, make sure that you've run `npm install` and that all keys in your `.env` file are set correctly.
-
 ### Run the Website
 
 Run the Next.js development server:

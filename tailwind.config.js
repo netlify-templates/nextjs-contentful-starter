@@ -6,8 +6,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+        sans: ['Manrope', ...defaultTheme.fontFamily.sans],
       },
+      colors: {
+        'nightowl-blue': '#011627',
+        'gray-950': '#0a0a0a', // Custom darker gray
+      }
     },
   },
   plugins: [],
