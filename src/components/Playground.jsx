@@ -54,10 +54,9 @@ const Playground = () => {
   };
 
   return (
-    <div className="flex gap-4 p-4">
+    <div className="flex gap-4 p-4 bg-white border border-gray-300 rounded-lg py-16 shadow-lg shadow-gray-600">
       {/* Chat Interface */}
-      <div className="flex-1 bg-white border border-gray-300 rounded-lg p-4 max-w-2xl w-full">
-        <h2 className="text-xl font-bold mb-4">Chat</h2>
+      <div className="flex-1 p-4 max-w-2xl w-full">
         <div className="h-[400px] overflow-y-auto mb-4 break-words">
           {chatMessages.map((msg, index) => (
             <div key={index} className={`mb-2  ${msg.sender !== 'User' ? 'text-right' : ''}`}>
@@ -81,8 +80,8 @@ const Playground = () => {
       </div>
 
       {/* Terminal Interface */}
-      <div className="flex-1 bg-black text-white border border-gray-300 rounded-lg p-4 max-w-2xl w-full">
-        <h2 className="text-xl font-bold mb-4">Terminal</h2>
+      <div className="flex-1 bg-nightowl-blue text-white text-sm border border-gray-300 rounded-lg p-4 max-w-2xl w-full shadow-lg shadow-gray-500">
+        <h2 className="text-lg font-bold mb-4">Terminal</h2>
         <div className="h-[400px] overflow-y-auto mb-4 break-words">
           <pre>{terminalOutput}</pre>
         </div>

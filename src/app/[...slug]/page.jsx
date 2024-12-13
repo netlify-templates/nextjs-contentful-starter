@@ -7,6 +7,8 @@ import ContentWithImage from '../../components/ContentWithImage.jsx';
 import Carousel from '../../components/Carousel.jsx';
 import Footer from '../../components/Footer.jsx';
 import { Fallback } from '../../components/Fallback.jsx';
+import ProductBreakdown from '../../components/ProductBreakdown.jsx';
+import ContentWithEmbed from '../../components/ContentWithEmbed.jsx';
 
 const componentMap = {
   hero: Hero,
@@ -14,7 +16,9 @@ const componentMap = {
   playground: Playground,
   contentWithImage: ContentWithImage,
   carousel: Carousel,
-  footer: Footer,
+  footer: Footer,  
+  productBreakdown: ProductBreakdown,
+  contentWithEmbed: ContentWithEmbed
 };
 
 export default async function ComposablePage({ params }) {

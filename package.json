@@ -11,7 +11,10 @@
     "markdown-to-jsx": "^7.4.7",
     "next": "15.0.2",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-github-btn": "^1.4.0",
+    "react-github-button": "^0.1.11",
+    "react-player": "^2.16.0"
   },
   "devDependencies": {
     "@stackbit/cms-contentful": "^1.0.0",

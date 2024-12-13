@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Footer = ({ items }) => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="py-8">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           {/* Left-aligned links */}
@@ -13,7 +13,7 @@ const Footer = ({ items }) => {
                 <Link
                   key={link.id}
                   href={link.url}
-                  className="text-lg text-gray-300 hover:text-white mr-4 mb-2 md:mb-0"
+                  className="mr-4 mb-2 md:mb-0"
                 >
                   {link.title}
                 </Link>
