@@ -1,20 +1,6 @@
 import { notFound } from 'next/navigation';
-import { Hero } from '../components/Hero.jsx';
 import { getPageFromSlug } from '../utils/content.js';
-import NavLinks from '../components/NavLinks.jsx';
-import Playground from '../components/Playground.jsx';
-import ContentWithImage from '../components/ContentWithImage.jsx';
-import Carousel from '../components/Carousel.jsx';
-import Footer from '../components/Footer.jsx';
-
-const componentMap = {
-  hero: Hero,
-  navigation: NavLinks,
-  playground: Playground,
-  contentWithImage: ContentWithImage,
-  carousel: Carousel,
-  footer: Footer,
-};
+import { getComponentForSection } from '../components';
 
 export default async function ComposablePage() {
   try {
@@ -27,7 +13,7 @@ export default async function ComposablePage() {
     return (
       <div data-sb-object-id={page.id}>
         {(page.sections || []).map((section, idx) => {
-          const Component = componentMap[section.type] || Fallback;
+          const Component = getComponentForSection(section);
           return <Component key={idx} {...section} />;
         })}
       </div>
