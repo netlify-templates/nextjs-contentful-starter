@@ -46,6 +46,10 @@ function mapEntry(entry) {
     };
   }
 
+  if (!entry.fields && typeof entry === 'string') {
+    return entry;
+  }
+
   return {
     id,
     type,

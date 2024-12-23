@@ -1,20 +1,14 @@
 import { notFound } from 'next/navigation';
 import { Hero } from '../../components/Hero.jsx';
-import { Stats } from '../../components/Stats.jsx';
 import { getPageFromSlug } from '../../utils/content.js';
 
 const componentMap = {
   hero: Hero,
-  stats: Stats,
 };
 
-export default async function ComposablePage({ params }) {
-  const { slug } = params;
-  
-  const pageSlug = slug.join('/');
-
+export default async function ComposablePage() {
   try {
-    const page = await getPageFromSlug(`/${pageSlug}`);
+    const page = await getPageFromSlug('/builds');
 
     if (!page) {
       return notFound();
@@ -22,6 +16,7 @@ export default async function ComposablePage({ params }) {
 
     return (
       <div data-sb-object-id={page.id}>
+        Builds index page
         {(page.sections || []).map((section, idx) => {
           const Component = componentMap[section.type];
           return <Component key={idx} {...section} />;
