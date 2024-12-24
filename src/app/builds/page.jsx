@@ -1,10 +1,6 @@
 import { notFound } from 'next/navigation';
-import { Hero } from '../../components/Hero.jsx';
 import { getPageFromSlug } from '../../utils/content.js';
-
-const componentMap = {
-  hero: Hero,
-};
+import Image from '../../components/Image.jsx'
 
 export default async function ComposablePage() {
   try {
@@ -14,13 +10,18 @@ export default async function ComposablePage() {
       return notFound();
     }
 
+    const { sections } = page;
+
     return (
-      <div data-sb-object-id={page.id}>
-        Builds index page
-        {(page.sections || []).map((section, idx) => {
-          const Component = componentMap[section.type];
-          return <Component key={idx} {...section} />;
-        })}
+      <div data-sb-object-id={page.id} className='container mx-auto'>
+        <div className='container flex flex-wrap justify-around items-center'>
+          {sections.map((section, idx) => (
+            <Image
+              {...section}
+              key={idx}
+            />
+          ))}
+        </div>
       </div>
     );
   } catch (error) {
