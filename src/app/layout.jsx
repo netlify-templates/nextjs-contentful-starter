@@ -6,6 +6,10 @@ export const metadata = {
     template: '%s | Losch Guitars',
     default: 'Losch Guitars',
   },
+  openGraph: {
+    title: 'Losch Guitars',
+    description: 'Custom guitars made by hand in Illinois',
+  },
   description: 'Custom guitars made by hand in Illinois',
   metadataBase: new URL('https://loschguitars.com'),
 };
