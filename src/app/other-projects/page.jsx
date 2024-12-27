@@ -3,6 +3,10 @@ import { getPageFromSlug } from '../../utils/content.js';
 import Image from '../../components/Image.jsx';
 import Heading from '../../components/Heading.jsx';
 
+export const metadata = {
+  title: 'Other Projects',
+};
+
 export default async function ComposablePage() {
   try {
     const page = await getPageFromSlug('/other-projects');

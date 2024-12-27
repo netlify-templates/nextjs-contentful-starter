@@ -34,9 +34,21 @@ export default async function ProjectShowPage({ params }) {
     const [firstImage, ...remainingImages] = imageData.images;
     const unfilteredProjectData = sections.find((section) => section.type === 'projectInfoTable');
     const { id, type, ...projectData } = unfilteredProjectData;
-    
+
+    const jsonLd = {
+      '@context': 'https://loschguitars.com',
+      '@type': 'Product',
+      name: imageData.name,
+      image: firstImage,
+      description: `Losch Guitars - ${imageData.name}`,
+    };
+
     return (
       <div data-sb-object-id={page.id} className='container mx-auto p-5'>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <h1 className='mb-10'>
           <Heading className='font-shout text-4xl' pageHeadingText={imageData.name} />
         </h1>

@@ -47,8 +47,20 @@ export default async function BuildsShowPage({ params }) {
     const { id, type, guitarName, ...buildData } = unfilteredBuildData;
     const [buildNumber, buildName] = guitarName.split(' - ');
 
+    const jsonLd = {
+      '@context': 'https://loschguitars.com',
+      '@type': 'Product',
+      name: guitarName,
+      image: firstImage,
+      description: `Losch Guitars #${buildNumber} - ${buildName}`,
+    };
+
     return (
       <div data-sb-object-id={page.id} className='container mx-auto p-5'>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <h1 className='mb-2'>
           <Heading className='font-shout text-6xl' pageHeadingText={buildNumber} />
         </h1>
