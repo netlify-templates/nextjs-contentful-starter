@@ -69,7 +69,7 @@ export default function ContactForm({ sendEmail }) {
     <div className='basis-2/3'>
       {formSubmitted && formSucceeded && (
         <div>
-          Thanks for reaching out! We'll be in touch soon.
+          Thanks for reaching out! We&apos;ll be in touch soon.
         </div>
       )}
 
