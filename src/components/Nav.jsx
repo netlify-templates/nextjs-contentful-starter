@@ -27,21 +27,51 @@ export default function Nav() {
         </span>
       </button>
 
-      <nav className={`${navClasses} lg:flex shrink-0 lg:items-center lg:justify-between mb-5 py-8 px-8 font-heading transition-all transition-discrete`}>
+      <nav className={`${navClasses} lg:flex shrink-0 lg:items-center lg:flex-row lg:justify-between mb-5 py-8 px-8 font-heading transition-all transition-discrete`}>
         <div className='flex flex-col lg:flex-row lg:mx-auto'>
-          <Link className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/">Home
-          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
-          <Link className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/builds">Guitars
-          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
-          <Link className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/other-projects">Not Guitars
-          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
-          <Link className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/about">About
-          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
-          <Link className='mb-5 group lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/contact">Contact
-          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
+          <Link
+            className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150'
+            href="/"
+            onClick={handleClick}
+          >
+            Home
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div>
+          </Link>
+          <Link
+            className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150'
+            href="/builds"
+            onClick={handleClick}
+          >
+            Guitars
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div>
+          </Link>
+          <Link
+            className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150'
+            href="/other-projects"
+            onClick={handleClick}
+          >
+            Not Guitars
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div>
+          </Link>
+          <Link
+            className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150'
+            href="/about"
+            onClick={handleClick}
+          >
+            About
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div>
+          </Link>
+          <Link
+            className='mb-5 group lg:mb-0 no-underline hover:transition-all ease-in-out delay-150'
+            href="/contact"
+            onClick={handleClick}
+          >
+            Contact
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div>
+          </Link>
         </div>
 
-        <Link className='' href="https://instagram.com/losch_guitars" target="_blank">
+        <Link href="https://instagram.com/losch_guitars" target="_blank">
           <Image
             src='/instagram-icon.png'
             width={24}
