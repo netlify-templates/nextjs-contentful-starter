@@ -29,11 +29,16 @@ export default function Nav() {
 
       <nav className={`${navClasses} lg:flex shrink-0 lg:items-center lg:justify-between mb-5 py-8 px-8 font-heading transition-all transition-discrete`}>
         <div className='flex flex-col lg:flex-row lg:mx-auto'>
-          <Link className='pr-5 mb-5 lg:mb-0 no-underline hover:underline hover:transition-all ease-in-out delay-150' href="/">Home</Link>
-          <Link className='pr-5 mb-5 lg:mb-0 no-underline hover:underline hover:transition-all ease-in-out delay-150' href="/builds">Guitars</Link>
-          <Link className='pr-5 mb-5 lg:mb-0 no-underline hover:underline hover:transition-all ease-in-out delay-150' href="/other-projects">Not Guitars</Link>
-          <Link className='pr-5 mb-5 lg:mb-0 no-underline hover:underline hover:transition-all ease-in-out delay-150' href="/about">About</Link>
-          <Link className='mb-5 lg:mb-0 hover:underline no-underline hover:transition-all ease-in-out delay-150' href="/contact">Contact</Link>
+          <Link className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/">Home
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
+          <Link className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/builds">Guitars
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
+          <Link className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/other-projects">Not Guitars
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
+          <Link className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/about">About
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
+          <Link className='mb-5 group lg:mb-0 no-underline hover:transition-all ease-in-out delay-150' href="/contact">Contact
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div></Link>
         </div>
 
         <Link className='' href="https://instagram.com/losch_guitars" target="_blank">
