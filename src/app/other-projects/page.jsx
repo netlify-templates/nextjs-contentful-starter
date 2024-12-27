@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getPageFromSlug } from '../../utils/content.js';
 import Image from '../../components/Image.jsx';
+import Heading from '../../components/Heading.jsx';
 
 export default async function ComposablePage() {
   try {
@@ -11,13 +12,16 @@ export default async function ComposablePage() {
     }
 
     const { sections } = page;
+    const [heading, ...images] = sections;
 
     return (
-      <div data-sb-object-id={page.id} className='container mx-auto'>
+      <div data-sb-object-id={page.id} className='container mx-auto p-5'>
+        <Heading {...heading} className='mb-5' />
         <div className='container flex flex-wrap justify-around items-center'>
-          {sections.map((section, idx) => (
+          {images.map((section, idx) => (
             <Image
               {...section}
+              className='mt-4 lg:mb-0'
               key={idx}
             />
           ))}

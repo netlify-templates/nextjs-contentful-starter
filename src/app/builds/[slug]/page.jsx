@@ -7,6 +7,9 @@ import Markdown from 'markdown-to-jsx';
 const tableMap = {
   completionDate: 'Completion Date',
   bodyWood: 'Body Wood',
+  topWood: 'Top Wood',
+  backWood: 'Back Wood',
+  neckWood: 'Neck Wood',
   fretboard: 'Fretboard',
   scaleLength: 'Scale Length',
   tuners: 'Tuners',
@@ -37,7 +40,7 @@ export default async function BuildsShowPage({ params }) {
     }
 
     const { sections } = page;
-    console.log('*** sections: ', sections)
+
     const imageData = sections.find((section) => section.type === 'imageGroup');
     const [firstImage, ...remainingImages] = imageData.images;
     const unfilteredBuildData = sections.find((section) => section.type === 'guitarInfoTable');
@@ -45,24 +48,28 @@ export default async function BuildsShowPage({ params }) {
     const [buildNumber, buildName] = guitarName.split(' - ');
 
     return (
-      <div data-sb-object-id={page.id} className='container mx-auto'>
-        <h1 className='mb-2'><Heading className='font-shout text-6xl' pageHeadingText={buildNumber} /></h1>
-        <div className='border-b border-paleBlue border-2 w-8 mb-2' />
-        <h2 className='mb-10'><Heading pageHeadingText={buildName} /></h2>
-        <div className='flex justify-between mb-10'>
-          <div className='max-w-lg mb-10'>
+      <div data-sb-object-id={page.id} className='container mx-auto p-5'>
+        <h1 className='mb-2'>
+          <Heading className='font-shout text-6xl' pageHeadingText={buildNumber} />
+        </h1>
+        <div className='border-b border-pale-blue border-2 w-8 mb-2' />
+        <h2 className='mb-10'>
+          <Heading pageHeadingText={buildName} />
+        </h2>
+        <div className='flex flex-col justify-between mb-10 lg:flex-row items-center lg:items-start'>
+          <div className='max-w-lg lg:max-w-fit mb-10 lg:mr-10'>
             {Object.keys(buildData).map((title) => {
               return (
                 <div className='grid grid-cols-2 border-b border-lightGray py-4'>
                   <div className='font-bold'>{tableMap[title]}</div>
-                  <div><Markdown>{parseTableValue(buildData[title])}</Markdown></div>
+                  <div className='max-w-80'><Markdown>{parseTableValue(buildData[title])}</Markdown></div>
                 </div>
               )
             })}
           </div>
           <Image {...firstImage} className='h-full' />
         </div>
-        <div className='container flex flex-wrap justify-between items-center'>
+        <div className='container flex flex-col lg:flex-wrap lg:flex-row justify-between items-center'>
           {remainingImages.map((image, idx) => (
             <Image
               {...image}

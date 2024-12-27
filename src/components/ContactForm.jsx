@@ -79,7 +79,7 @@ export default function ContactForm({ sendEmail }) {
 
       {!formSubmitted && (
         <Form action={handleSubmit} className="flex flex-col px-8 py-8 border-8 border-black">
-          <label htmlFor={FIELDS.FIRST_NAME} className="mt-8 font-heading pb-2">First name*</label>
+          <label htmlFor={FIELDS.FIRST_NAME} className="font-heading pb-2">First name*</label>
           <input
             required
             type="text"
@@ -123,7 +123,7 @@ export default function ContactForm({ sendEmail }) {
           {formErrors.message && <div className='text-darkRed'>{formErrors.message}</div>}
 
           <div className="flex justify-start">
-            <button type="submit" className="px-10 mt-8 py-2 bg-paleBlue text-gray-50 text-lg rounded-md">
+            <button type="submit" className="px-10 mt-8 py-2 bg-pale-blue text-gray-50 text-lg rounded-md">
               Send
             </button>
           </div>

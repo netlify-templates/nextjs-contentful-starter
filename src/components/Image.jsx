@@ -9,6 +9,7 @@ export default function ContentfulImage(props) {
       className={`border-8 border-black ${hoverClasses} ${props.className}`}
       width={props.width || 476}
       height={props.height || 476}
+      sizes={props.sizes}
       alt={props.imageContent?.alt || props.alt}
     />
   );
@@ -17,7 +18,7 @@ export default function ContentfulImage(props) {
     return (
       <Link href={props.imageLink}>
         {baseImage}
-        <div className='py-4 font-heading'>{props.imageContent.alt}</div>
+        <div className='py-4 font-heading text-center'>{props.imageContent.alt}</div>
       </Link>
     );
   }

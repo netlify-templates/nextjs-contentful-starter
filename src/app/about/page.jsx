@@ -16,9 +16,9 @@ export default async function ComposablePage() {
     const photo = page.sections.find((section) => section.type === 'image');
 
     return (
-      <div data-sb-object-id={page.id} className='container mx-auto flex justify-between'>
-        <div className='mr-10 max-w-lg'>
-          <h1 className='pb-10'><Heading pageHeadingText={heading.pageHeadingText} /></h1>
+      <div data-sb-object-id={page.id} className='container p-5 mx-auto flex flex-col lg:flex-row justify-between'>
+        <div className='mb-10 max-w-lg lg:mr-10 lg:mb-0'>
+          <h1 className='pb-6 lg:pb-10'><Heading pageHeadingText={heading.pageHeadingText} /></h1>
           <h2 className='font-heading'>{subtitle.textFieldBody}</h2>
         </div>
         <Image {...photo} />

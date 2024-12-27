@@ -21,9 +21,9 @@ export default async function ComposablePage() {
     const subtitle = page.sections.find((section) => section.type === 'textField');
 
     return (
-      <div data-sb-object-id={page.id} className='container mx-auto flex justify-between'>
-        <div className='mr-10'>
-          <h1 className='pb-10'><Heading pageHeadingText={heading.pageHeadingText} /></h1>
+      <div data-sb-object-id={page.id} className='container mx-auto mb-10 p-5 flex flex-col justify-between lg:flex-row'>
+        <div className='mb-10 lg:mr-10 lg:mb-0'>
+          <h1 className='pb-6 lg:pb-10'><Heading pageHeadingText={heading.pageHeadingText} /></h1>
           <h2 className='font-heading'>{subtitle.textFieldBody}</h2>
         </div>
 

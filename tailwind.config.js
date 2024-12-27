@@ -7,12 +7,12 @@ module.exports = {
     colors: {
       cream: '#FFFDF0',
       black: '#141C25',
-      darkGray: '#606D80',
-      lightGray: '#CCD1DB',
-      redOrange: '#FD5F3F',
-      darkRed: '#A52E16',
-      paleBlue: '#C8E4DD',
-      brightYellow: '#FFEA',
+      'dark-gray': '#606D80',
+      'light-gray': '#CCD1DB',
+      'red-orange': '#FD5F3F',
+      'dark-red': '#A52E16',
+      'pale-blue': '#C8E4DD',
+      'bright-yellow': '#FFEA64',
     },
     extend: {
       fontFamily: {
