@@ -60,7 +60,7 @@ export default async function BuildsShowPage({ params }) {
           <div className='max-w-lg lg:max-w-fit mb-10 lg:mr-10'>
             {Object.keys(buildData).map((title) => {
               return (
-                <div className='grid grid-cols-2 border-b border-lightGray py-4'>
+                <div key={title} className='grid grid-cols-2 border-b border-lightGray py-4'>
                   <div className='font-bold'>{tableMap[title]}</div>
                   <div className='max-w-80'><Markdown>{parseTableValue(buildData[title])}</Markdown></div>
                 </div>
