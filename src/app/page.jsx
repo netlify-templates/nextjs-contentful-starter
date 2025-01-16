@@ -4,6 +4,7 @@ import { getPageFromSlug } from '../utils/content.js';
 import Carousel from '../components/Carousel.jsx';
 import Image from '../components/Image.jsx';
 import TextField from '../components/TextField.jsx';
+import InstagramEmbed from '../components/InstagramEmbed.jsx';
 
 export default async function ComposablePage() {
   try {
@@ -47,6 +48,8 @@ export default async function ComposablePage() {
         <div className='container mx-auto mb-10'>
           <Carousel slides={testimonials} />
         </div>
+
+        <InstagramEmbed />
 
         <div className='bg-black flex justify-center items-end py-10'>
           <div className='bg-red-orange rounded-full'>
