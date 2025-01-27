@@ -33,3 +33,5 @@ yarn-error.log*
 .vercel
 
 .stackbit/cache
+# Local Netlify folder
+.netlify
