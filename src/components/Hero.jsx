@@ -11,7 +11,7 @@ export const Hero = (props) => {
   return (
     <div className="px-6 py-16 bg-gray-100 sm:px-12 sm:py-24" data-sb-object-id={props.id}>
       <div className={`max-w-6xl mx-auto flex flex-col gap-12 md:items-center ${themeClassMap[props.theme] ?? themeClassMap['imgRight']}`}>
-        <div className="w-full max-w-xl mx-auto flex-1">
+        <div className="flex-1 w-full max-w-xl mx-auto">
           <h1 className="mb-6 text-4xl font-bold sm:text-5xl" data-sb-field-path="heading">
             {props.heading}
           </h1>
@@ -22,7 +22,7 @@ export const Hero = (props) => {
           )}
           {props.button && <Button {...props.button} />}
         </div>
-        <div className="w-full aspect-[4/3] flex-1 relative overflow-hidden rounded-md">
+        <div className="relative flex-1 w-full overflow-hidden rounded-md aspect-4/3">
           {props.image && (
             <Image
               src={props.image.src}
