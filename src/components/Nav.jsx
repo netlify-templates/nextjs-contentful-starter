@@ -62,11 +62,19 @@ export default function Nav() {
           <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div>
           </Link>
           <Link
-            className='mb-5 group lg:mb-0 no-underline hover:transition-all ease-in-out delay-150'
+            className='pr-5 group mb-5 lg:mb-0 no-underline hover:transition-all ease-in-out delay-150'
             href="/contact"
             onClick={handleClick}
           >
             Contact
+          <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div>
+          </Link>
+          <Link
+            className='mb-5 group lg:mb-0 no-underline hover:transition-all ease-in-out delay-150'
+            href="/faq"
+            onClick={handleClick}
+          >
+            FAQ
           <div className="bg-black h-[2px] w-0 group-hover:w-full transition-all duration-500"></div>
           </Link>
         </div>
