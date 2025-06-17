@@ -1,101 +1,165 @@
-# Netlify Next.js + Contentful Minimal Starter
+# Update konten HTML sesuai permintaan: Nama agen, daftar produk, dan 2 nomor WhatsApp
+updated_html_resta = """
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AGEN TELUR RESTA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff8e1;
+      margin: 0;
+      padding: 0;
+    }
 
-![Screenshot](https://assets.stackbit.com/docs/tutorial-shared-thumb.png)
+    header {
+      background-color: #f57f17;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
 
-**⚡ View demo:** [nextjs-contentful-starter.netlify.app](https://nextjs-contentful-starter.netlify.app/)
+    nav {
+      background-color: #ffcc80;
+      padding: 10px;
+      text-align: center;
+    }
 
-## Prerequisites
+    nav a {
+      margin: 0 15px;
+      color: #4e342e;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-Before you begin, please make sure you have the following:
+    section {
+      padding: 20px;
+    }
 
-- [Netlify account](https://www.netlify.com/)
-- [Contentful account](https://www.contentful.com/)
-- GitHub, GitLab or Bitbucket account
-- Node v18+ or later
-- (optional) [nvm](https://github.com/nvm-sh/nvm) for Node version management.
+    .produk {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
 
-## Getting Started
+    .card {
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      text-align: center;
+    }
 
-### Clone this repository
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      height: 150px;
+      object-fit: cover;
+    }
 
-Fork and clone your repository, then run `npm install` in its root directory.
+    .order-btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 10px;
+    }
 
-### Create Contentful Space
+    footer {
+      background-color: #f57f17;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
 
-After signing into Contentful, create a new space. 
+  <header>
+    <h1>AGEN TELUR RESTA</h1>
+    <p>Telur Berkualitas, Harga Bersahabat!</p>
+  </header>
 
-### Generate Management Token
+  <nav>
+    <a href="#tentang">Tentang Kami</a>
+    <a href="#produk">Produk</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
 
-If you don't already have a management token (or _personal access token_), generate one. To do so, go into your new empty space, then:
+  <section id="tentang">
+    <h2>Tentang Kami</h2>
+    <p>AGEN TELUR RESTA menyediakan berbagai macam telur segar dan berkualitas, langsung dari peternakan. Cocok untuk kebutuhan rumah tangga, UMKM, hingga restoran.</p>
+  </section>
 
-1. Click _Settings_
-1. Choose _API Keys_
-1. Select the _Content management tokens_ tab
-1. Click the button to generate a new token
+  <section id="produk">
+    <h2>Produk Kami</h2>
+    <div class="produk">
+      <div class="card">
+        <img src="https://source.unsplash.com/200x150/?chicken-eggs" alt="Telur Ayam" />
+        <h3>Telur Ayam</h3>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/200x150/?duck-eggs" alt="Telur Bebek" />
+        <h3>Telur Bebek</h3>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/200x150/?kampung-egg" alt="Telur Ayam Kampung" />
+        <h3>Telur Ayam Kampung</h3>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/200x150/?quail-eggs" alt="Telur Puyuh" />
+        <h3>Telur Puyuh</h3>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/200x150/?omega-egg" alt="Telur Omega" />
+        <h3>Telur Omega</h3>
+      </div>
+    </div>
 
-![Generate content management token](./docs/generate-mgmt-token.png)
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="https://wa.me/62895346037550?text=Halo%20saya%20ingin%20pesan%20telur" class="order-btn">
+        📲 Order via WA 1
+      </a>
+      <a href="https://wa.me/6289531687189?text=Halo%20saya%20ingin%20pesan%20telur" class="order-btn">
+        📲 Order via WA 2
+      </a>
+    </div>
+  </section>
 
-### Generate Preview & Delivery API Keys
+  <section id="kontak">
+    <h2>Hubungi Kami</h2>
+    <p>📞 WhatsApp 1: +62 895-3460-37550</p>
+    <p>📞 WhatsApp 2: +62 895-3168-7189</p>
+    <p>📍 Alamat: Jl. Petamburan 5 Tanah Abang</p>
 
-From the same place you generated the management token, you can now generate API access keys.
+  <footer>
+    <p>&copy; 2025 AGEN TELUR RESTA. Semua hak dilindungi.</p>
+  </footer>
 
-1. Select the *content delivery / preview tokens* tab
-1. Choose *Add API key*
+</body>
+</html>
+"""
 
-### Set Environment Variables
+# Simpan file HTML yang sudah diubah ke folder baru
+resta_folder_path = "/mnt/data/agen_telur_resta"
+os.makedirs(resta_folder_path, exist_ok=True)
 
-In your project, duplicate `.env.example` to `.env`. 
+resta_html_path = os.path.join(resta_folder_path, "index.html")
+with open(resta_html_path, "w", encoding="utf-8") as f:
+    f.write(updated_html_resta)
 
-Fill in the values in the file based on the keys you've created. 
+# Buat ZIP-nya
+resta_zip_path = "/mnt/data/agen_telur_resta.zip"
+with ZipFile(resta_zip_path, "w") as zipf:
+    zipf.write(resta_html_path, arcname="index.html")
 
-Note: the Contentful space ID can be viewed and copied via *Settings->General Settings* in Contentful.
-
-### Import Content
-
-Import the provided content models & content into Contentful by running the `import.js` script:
-
-    npm run import
-
-If the import fails to run, make sure that you've run `npm install` and that all keys in your `.env` file are set correctly.
-
-### Run the Website
-
-Run the Next.js development server:
-
-    npm run dev
-
-Visit [localhost:3000](http://localhost:3000) and you should see the example content you imported into your new Contentful space.
-
-### Run Netlify Visual Editor in Local Development Mode
-
-Keep the Next.js development server running, and open a new command-line window in the same directory.
-
-Install Stackbit's CLI tools (once):
-    
-    npm i -g @stackbit/cli@latest
-
-Run the CLI:
-
-    stackbit dev
-
-Click the displayed link to [localhost:8090/_stackbit](http://localhost:8090/_stackbit) and the visual editor will open.
-
-### Create a Cloud-Based Netlify Project
-
-To deploy a cloud-based Netlify project your need to connected your repository to Netlify:
-
-1. If you haven't created your GitHub project repository, create it and push your code to GitHub
-2. Open the [app.netlify.com](https://app.netlify.com/), and choose "Import from Git" in the "Import an existing project" section
-3. In the "Configure site and deploy" step you will see the "Visual editor" section. To make it work, you will need to install "Netlify Visual Editor GitHub App" in your GitHub account.
-4. Deploy your project
-
-## Next Steps
-
-Here are a few suggestions on what to do next if you're new to Netlify visual editor:
-
-- Learn [how Netlify visual editor works](https://docs.netlify.com/visual-editor/overview/)
-- Check [Netlify visual editor reference documentation](https://visual-editor-reference.netlify.com/)
-
-## Support
-
-If you get stuck along the way, get help in our [support forums](https://answers.netlify.com/).
+resta_zip_path
