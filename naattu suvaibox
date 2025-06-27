@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naattu Suvai Box</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      margin: 0;
+      background-color: #fffdf5;
+      color: #3a2e1d;
+    }
+    header {
+      background-color: #f8e0a3;
+      padding: 30px;
+      text-align: center;
+      border-bottom: 5px solid #c2902d;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+      color: #5e3b0c;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+      color: #7b5e26;
+    }
+    .section {
+      padding: 50px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .section h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 20px;
+      color: #4d3319;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .product {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .product h3 {
+      margin: 10px 0;
+      font-size: 1.4em;
+      color: #4d3319;
+    }
+    .product p {
+      font-size: 1em;
+    }
+    .product a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 18px;
+      background-color: #d98e04;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    footer {
+      background-color: #f8e0a3;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9em;
+      color: #5a3f1c;
+      border-top: 4px solid #c2902d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Naattu Suvai Box</h1>
+    <p>Taste of Tradition – From Village to Plate</p>
+  </header>  <section class="section">
+    <h2>About Us</h2>
+    <p>Naattu Suvai Box brings you authentic village flavors from Ramanathapuram. With every box, you get the essence of tradition packed in dry fish, hand-ground masalas, and native snacks prepared using age-old recipes and love.</p>
+  </section>  <section class="section">
+    <h2>Our Products</h2>
+    <div class="products">
+      <div class="product">
+        <h3>Dry Fish Pack</h3>
+        <p>Assorted traditional dry fish – 250g</p>
+        <a href="https://wa.me/91XXXXXXXXXX?text=I%20want%20to%20order%20Dry%20Fish%20Pack">Order on WhatsApp</a>
+      </div>
+      <div class="product">
+        <h3>Masala Powder Combo</h3>
+        <p>3 Hand-ground podis – 200g each</p>
+        <a href="https://wa.me/91XXXXXXXXXX?text=I%20want%20to%20order%20Masala%20Combo">Order on WhatsApp</a>
+      </div>
+      <div class="product">
+        <h3>Village Snack Box</h3>
+        <p>Handmade crunchy snacks with native taste</p>
+        <a href="https://wa.me/91XXXXXXXXXX?text=I%20want%20to%20order%20Village%20Snack%20Box">Order on WhatsApp</a>
+      </div>
+    </div>
+  </section>  <section class="section">
+    <h2>How It Works</h2>
+    <p>We source native ingredients directly from rural homes, prepare each batch fresh, pack it in eco-safe wrappers, and deliver it to your door through fast courier partners. Experience the purity and power of traditional food.</p>
+  </section>  <section class="section">
+    <h2>Contact Us</h2>
+    <p>WhatsApp: <strong>+91 XXXXXXXXXX</strong><br>
+    Instagram: <strong>@naattusuvaibox</strong><br>
+    Email: <strong>support@naattusuvai.in</strong></p>
+  </section>  <footer>
+    &copy; 2025 Naattu Suvai Box – All Rights Reserved.
+  </footer>
+</body>
+</html>
