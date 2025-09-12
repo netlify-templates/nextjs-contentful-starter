@@ -1,0 +1,155 @@
+import React from "react";
+
+// Updated React component for CS AMIZERO — TURERE IBIBONDO
+// Includes real logo, welcome banner, contact info, and email.
+
+export default function CsAmizeroWebsite() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 text-gray-800">
+      {/* NAV */}
+      <header className="shadow-sm bg-white sticky top-0 z-40">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <img src="/C.S AMIZERO.png" alt="CS AMIZERO Logo" className="w-12 h-12 object-contain" />
+            <div>
+              <h1 className="text-xl font-semibold">CS AMIZERO</h1>
+              <p className="text-sm text-gray-500">Turere Ibibondo — Education • Community • Pride</p>
+            </div>
+          </div>
+
+          <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
+            <a href="#home" className="hover:text-blue-600">Home</a>
+            <a href="#about" className="hover:text-blue-600">About</a>
+            <a href="#programs" className="hover:text-blue-600">Programs</a>
+            <a href="#gallery" className="hover:text-blue-600">Gallery</a>
+            <a href="#contact" className="text-white bg-blue-600 px-4 py-2 rounded-md shadow hover:bg-blue-700">Contact</a>
+          </nav>
+
+          <div className="md:hidden">
+            <button className="px-3 py-2 rounded-md border">Menu</button>
+          </div>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section id="home" className="pt-12">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+          <div className="space-y-6">
+            <img src="/welcom.png" alt="Welcome Banner" className="w-full rounded-lg shadow" />
+            <h2 className="text-4xl md:text-5xl font-extrabold text-blue-700">Welcome to CS AMIZERO</h2>
+            <p className="text-lg text-gray-600">Turere Ibibondo — A place where learners grow with values, discipline and community spirit. Join our programs, events and community initiatives.</p>
+
+            <div className="flex gap-4">
+              <a href="#programs" className="inline-block bg-green-600 text-white px-5 py-3 rounded-lg shadow hover:bg-green-700">View Programs</a>
+              <a href="#contact" className="inline-block border border-gray-300 px-5 py-3 rounded-lg hover:bg-gray-50">Get in touch</a>
+            </div>
+          </div>
+
+          <div className="order-first md:order-last">
+            <div className="rounded-2xl overflow-hidden shadow-lg">
+              <img alt="CS AMIZERO - school" src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=60" className="w-full h-72 object-cover" />
+              <div className="p-4 bg-white">
+                <h3 className="font-semibold text-lg">Celebrating learning & culture</h3>
+                <p className="text-sm text-gray-600 mt-1">Events, assemblies, and community service — building leaders of tomorrow.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="mt-16">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-8 items-center">
+            <div className="md:col-span-2">
+              <h3 className="text-2xl font-bold">About CS AMIZERO — Turere Ibibondo</h3>
+              <p className="mt-4 text-gray-600">CS AMIZERO is dedicated to providing quality primary education rooted in cultural values and practical skills. We focus on strong academic foundations, sports, arts and community outreach. Our goal is to nurture responsible, curious and confident students.</p>
+
+              <ul className="mt-4 grid sm:grid-cols-2 gap-3 text-gray-700">
+                <li>• Child-centered learning</li>
+                <li>• Supportive community & parent involvement</li>
+                <li>• Extra-curricular activities (sports, music, dance)</li>
+                <li>• Preparation for national exams</li>
+              </ul>
+
+              <div className="mt-6">
+                <a href="#contact" className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md">Visit / Enroll</a>
+                <a href="#gallery" className="inline-block ml-4 border px-4 py-2 rounded-md">See Gallery</a>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl shadow p-6">
+              <h4 className="font-semibold">School Quick Info</h4>
+              <div className="mt-3 text-sm text-gray-600 space-y-2">
+                <div><strong>Location:</strong> Turere Ibibondo (example)</div>
+                <div><strong>Levels:</strong> Primary (P1 - P6)</div>
+                <div><strong>Principal:</strong> Headmaster Name</div>
+                <div><strong>Contact:</strong> 0783805148</div>
+                <div><strong>Email:</strong> csamizero1234@gmail.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="mt-16 bg-gradient-to-r from-white to-gray-50 py-12">
+        <div className="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-start">
+          <div>
+            <h3 className="text-2xl font-bold">Get in touch</h3>
+            <p className="text-gray-600 mt-2">Visit us, call, or send a message. We’d love to hear from parents and partners.</p>
+
+            <div className="mt-6 space-y-4 text-sm text-gray-700">
+              <div>
+                <div className="font-semibold">Address</div>
+                <div>Turere Ibibondo, Rwanda</div>
+              </div>
+
+              <div>
+                <div className="font-semibold">Phone</div>
+                <div>0783805148</div>
+              </div>
+
+              <div>
+                <div className="font-semibold">Email</div>
+                <div>csamizero1234@gmail.com</div>
+              </div>
+            </div>
+
+            <div className="mt-6">
+              <a href="mailto:csamizero1234@gmail.com" className="inline-block bg-blue-600 text-white px-4 py-2 rounded-md">Email us</a>
+            </div>
+          </div>
+
+          <div>
+            <form className="bg-white p-6 rounded-lg shadow">
+              <label className="block text-sm font-medium">Your name</label>
+              <input className="mt-1 block w-full border rounded-md px-3 py-2" placeholder="Full name" />
+
+              <label className="block text-sm font-medium mt-4">Email or Phone</label>
+              <input className="mt-1 block w-full border rounded-md px-3 py-2" placeholder="email@example.com or +250 7XX XXX XXX" />
+
+              <label className="block text-sm font-medium mt-4">Message</label>
+              <textarea className="mt-1 block w-full border rounded-md px-3 py-2" rows={4} placeholder="How can we help?"></textarea>
+
+              <div className="mt-4 flex items-center gap-3">
+                <button type="button" className="bg-green-600 text-white px-4 py-2 rounded-md">Send</button>
+                <button type="reset" className="px-4 py-2 border rounded-md">Reset</button>
+              </div>
+
+              <p className="text-xs text-gray-400 mt-3">This form is a UI placeholder. Connect it to your email or server to receive messages.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="mt-20 bg-white border-t">
+        <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-sm text-gray-600">© {new Date().getFullYear()} CS AMIZERO — Turere Ibibondo. All rights reserved.</div>
+          <div className="text-sm text-gray-600">Made with ❤️ for the community.</div>
+        </div>
+      </footer>
+    </div>
+  );
+}
