@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>JOO MIX - قائمة</title>
+  <!-- Tailwind CDN (development; مناسب للعرض السريع) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* تصغير الفقرة في الهواتف عشان يبان متناسق */
+    body { direction: rtl; }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white antialiased">
+
+  <div id="root"></div>
+
+  <!-- React + ReactDOM + Babel (JSX في المتصفح) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    const ChevronDown = ({ className }) => (
+      <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    );
+
+    const ChevronUp = ({ className }) => (
+      <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <path d="M18 15l-6-6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    );
+
+    const PhoneIcon = ({ className }) => (
+      <svg className={className} width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.05.38 2.07.77 3.03a2 2 0 0 1-.45 2.11L8.91 11.09a16 16 0 0 0 6 6l1.23-1.23a2 2 0 0 1 2.11-.45c.96.39 1.98.65 3.03.77A2 2 0 0 1 22 16.92z" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    );
+
+    const JooMixMenu = () => {
+      const [expandedSection, setExpandedSection] = useState('shawarma');
+
+      const menuData = {
+        shawarma: {
+          title: 'قسم الشاورما',
+          icon: '🌯',
+          items: [
+            { name: 'شاورما فراخ سوري', price: 70 },
+            { name: 'شاورما فراخ بطاطس', price: 75 },
+            { name: 'جوو مكس', price: 75, desc: '(شاورما فراخ + موزريلا + زيتون + بطاطس)' },
+            { name: 'اضافة موزريلا', price: 10 },
+            { name: 'سندوتشات بطاطس سوري', price: 30 },
+            { name: 'بانيه سوري', price: 35 },
+            { name: 'استربس سوري', price: 50 },
+            { name: 'برجر سوري', price: 40 },
+            { name: 'رومي سوري', price: 35 },
+            { name: 'مكس جبن سوري', price: 35 },
+          ]
+        },
+        crepeChicken: {
+          title: 'قسم كريب فراخ',
+          icon: '🌮',
+          sizes: ['بانيه', 'استربس', 'شيش طاووق', 'كوردن بلو', 'شاورما فراخ', 'فاهيتا فراخ', 'زنجر', 'سوبر كرانش', 'ميكس فراخ'],
+          prices: {
+            small: [30, 60, 60, 60, 70, 75, 70, 70, 80],
+            medium: [50, 80, 80, 80, 85, 90, 90, 85, 100],
+            large: [80, 100, 110, 100, 115, 115, 115, 115, 120]
+          }
+        },
+        crepeMeat: {
+          title: 'قسم كريب لحوم',
+          icon: '🥙',
+          items: [
+            { name: 'برجر', sizes: { small: 40, medium: 60, large: 80 } },
+            { name: 'هوت دوج', sizes: { small: 50, medium: 60, large: 80 } },
+            { name: 'كفتة', sizes: { small: 40, medium: 60, large: 80 } },
+            { name: 'سوسيس', sizes: { small: 50, medium: 65, large: 85 } },
+            { name: 'ميكس لحوم', sizes: { small: 80, medium: 100, large: 120 } },
+          ]
+        },
+        crepeCheese: {
+          title: 'قسم كريب جبن',
+          icon: '🧀',
+          items: [
+            { name: 'كريب بطاطس', sizes: { small: 35, medium: 45, large: 60 } },
+            { name: 'كريب ميكس جبن', sizes: { small: 35, medium: 45, large: 60 } },
+          ]
+        },
+        shawarmaSandwich: {
+          title: 'فتة شاورما',
+          icon: '🍖',
+          items: [
+            { name: 'فتة شاورما فراخ', price: 120 },
+            { name: 'شاورما فراخ عربي', price: 110 },
+            { name: 'شاورما فراخ عربي دوبل', price: 150 },
+          ]
+        },
+        meals: {
+          title: 'الوجبات',
+          icon: '🍽️',
+          items: [
+            { name: 'ريزو استربس', prices: { medium: 70, large: 90 } },
+            { name: 'ريزو شيش', prices: { medium: 80, large: 100 } },
+            { name: 'ريزو شاورما', prices: { medium: 80, large: 100 } },
+            { name: 'ريزو كفتة', prices: { medium: 70, large: 100 } },
+            { name: 'ريزو ميكس فراخ', prices: { medium: 80, large: 110 } },
+            { name: 'ريزو ميكس لحوم', prices: { medium: 80, large: 110 } },
+          ]
+        },
+        pancakes: {
+          title: 'قسم البان كيك',
+          icon: '🥞',
+          items: [
+            { name: '6 قطع بان كيك', price: 10 },
+            { name: '12 قطعة بان كيك', price: 20 },
+            { name: '15 قطعة بان كيك', price: 25 },
+            { name: '18 قطعة بان كيك', price: 30 },
+            { name: '30 قطعة بان كيك', price: 50 },
+            { name: '12 قطعة بستاشيو', price: 30 },
+            { name: '12 قطعة بلوبيري', price: 30 },
+            { name: '12 قطعة كافيه', price: 30 },
+            { name: '12 قطعه روشيه', price: 30 },
+            { name: '12 قطعه رفايلو', price: 30 },
+          ]
+        },
+        fresca: {
+          title: 'قسم الفرسكا',
+          icon: '🍫',
+          items: [
+            { name: 'فرسكا نوتيلا', price: 10 },
+            { name: 'فرسكا وايت', price: 15 },
+            { name: 'فرسكا لوتس', price: 15 },
+            { name: 'فرسكا فراوله', price: 10 },
+            { name: 'فرسكا دارك', price: 10 },
+            { name: 'فرسكا كارميل', price: 10 },
+            { name: 'فرسكا مكس', price: 15 },
+            { name: 'فرسكا كندر', price: 20 },
+            { name: 'فرسكا بلوبيري', price: 20 },
+            { name: 'فرسكا بستاشيو', price: 20 },
+            { name: 'فرسكا كافيه', price: 20 },
+            { name: 'فرسكا رفايلو', price: 20 },
+            { name: 'فرسكا روشيه', price: 20 },
+            { name: 'فرسكا ميني', price: 15, desc: '(هوهوز / تويكز / اوريو)' },
+            { name: 'فرسكا جاميو', price: 20, desc: '(هوهوز / تويكز / اوريو)' },
+            { name: 'فرسكا متحولين', price: 25 },
+            { name: 'فرسكا رولانا', price: 25 },
+          ]
+        },
+        waffles: {
+          title: 'قسم الوافل',
+          icon: '🧇',
+          items: [
+            { name: 'وافل نوتيلا', price: 25 },
+            { name: 'وافل مكس', price: 30 },
+            { name: 'وافل (هوهوز / تويكز / اوريو)', price: 35 },
+            { name: 'وافل كندر', price: 35 },
+            { name: 'وافل بستاشيو', price: 35 },
+            { name: 'وافل كافيه', price: 35 },
+            { name: 'وافل روشيه', price: 35 },
+            { name: 'وافل رفايلو', price: 35 },
+            { name: 'وافل بلوبيري', price: 35 },
+          ]
+        },
+        tortaWaffle: {
+          title: 'قسم تورتا وافل',
+          icon: '🎂',
+          items: [
+            { name: '2 طبقه', price: 100 },
+            { name: '3 طبقه', price: 150 },
+            { name: '4 طبقه', price: 200 },
+            { name: '5 طبقه', price: 250 },
+          ]
+        },
+        fetaPancake: {
+          title: 'قسم الفته',
+          icon: '🍰',
+          items: [
+            { name: 'فته فرسكا', price: 35 },
+            { name: 'فته وافل', price: 50 },
+            { name: 'طاجن بان كيك', price: 40 },
+          ]
+        },
+        newWaffle: {
+          title: 'قسم New waffle',
+          icon: '🔥',
+          items: [
+            { name: '2 قطعه نوتـــيلا', price: 15 },
+            { name: '2 قطعه مكـــس', price: 20 },
+            { name: '2 قطعه كنـــدر', price: 20 },
+            { name: '2 قطعه بستاشيو', price: 25 },
+            { name: '2 قطعه كوفـــي', price: 25 },
+            { name: '2 قطعه بلوبــري', price: 25 },
+            { name: '2 قطعه روشيــه', price: 25 },
+            { name: '2 قطعه رفايلــو', price: 25 },
+          ]
+        },
+        shami: {
+          title: 'الشامي',
+          icon: '🥙',
+          items: [
+            { name: 'بطاطس', price: 10 },
+            { name: 'بطاطس مكس جبن', price: 20 },
+            { name: 'رومي قرن', price: 20 },
+            { name: 'بطاطس بانيه', price: 20 },
+            { name: 'بطاطس برجر', price: 25 },
+          ]
+        }
+      };
+
+      const toggleSection = (section) => {
+        setExpandedSection(expandedSection === section ? null : section);
+      };
+
+      return (
+        <div className="min-h-screen pb-28">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-amber-600 to-amber-700 text-white p-6 shadow-2xl sticky top-0 z-50">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
+                  <span className="text-4xl">🌯</span>
+                </div>
+              </div>
+              <h1 className="text-4xl font-bold text-center mb-2">JOO MIX</h1>
+              <p className="text-center text-amber-100 text-lg">SHAWARMA & WAFFLE</p>
+              
+              {/* Contact Info */}
+              <div className="mt-4 flex flex-wrap justify-center gap-3 text-sm">
+                <a href="tel:01106177440" className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full hover:bg-white/30 transition">
+                  <PhoneIcon className="w-4 h-4" />
+                  01106177440
+                </a>
+                <a href="tel:01106177404" className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full hover:bg-white/30 transition">
+                  <PhoneIcon className="w-4 h-4" />
+                  01106177404
+                </a>
+                <a href="tel:01008846536" className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full hover:bg-white/30 transition">
+                  <PhoneIcon className="w-4 h-4" />
+                  01008846536
+                </a>
+                <a href="tel:01515454871" className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full hover:bg-white/30 transition">
+                  <PhoneIcon className="w-4 h-4" />
+                  01515454871
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Menu Content */}
+          <div className="max-w-4xl mx-auto p-4 pb-20">
+            {Object.entries(menuData).map(([key, section]) => (
+              <div key={key} className="mb-4">
+                <button
+                  onClick={() => toggleSection(key)}
+                  className="w-full bg-gradient-to-r from-amber-600 to-amber-700 text-white p-4 rounded-xl shadow-lg flex items-center justify-between hover:from-amber-700 hover:to-amber-800 transition-all transform hover:scale-[1.02]"
+                >
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl">{section.icon}</span>
+                    <span className="text-xl font-bold">{section.title}</span>
+                  </div>
+                  {expandedSection === key ? (
+                    <ChevronUp className="w-6 h-6" />
+                  ) : (
+                    <ChevronDown className="w-6 h-6" />
+                  )}
+                </button>
+
+                {expandedSection === key && (
+                  <div className="bg-slate-800/50 backdrop-blur-sm rounded-b-xl p-4 mt-1 shadow-xl border border-amber-600/20">
+                    {/* Special handling for crepeChicken section */}
+                    {key === 'crepeChicken' && (
+                      <div className="space-y-3">
+                        <div className="grid grid-cols-4 gap-2 text-amber-400 font-bold text-center text-sm pb-2 border-b border-amber-600/30">
+                          <div></div>
+                          <div>صغير</div>
+                          <div>وسط</div>
+                          <div>كبير</div>
+                        </div>
+                        {section.sizes.map((item, idx) => (
+                          <div key={idx} className="grid grid-cols-4 gap-2 text-white items-center bg-slate-700/30 rounded-lg p-3 hover:bg-slate-700/50 transition">
+                            <div className="text-right font-medium">{item}</div>
+                            <div className="text-center text-amber-400 font-bold">{section.prices.small[idx]} ج</div>
+                            <div className="text-center text-amber-400 font-bold">{section.prices.medium[idx]} ج</div>
+                            <div className="text-center text-amber-400 font-bold">{section.prices.large[idx]} ج</div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Regular items with simple price */}
+                    {section.items && !section.items[0]?.sizes && !section.items[0]?.prices && (
+                      <div className="space-y-2">
+                        {section.items.map((item, idx) => (
+                          <div key={idx} className="flex justify-between items-start bg-slate-700/30 rounded-lg p-3 hover:bg-slate-700/50 transition">
+                            <div className="text-white">
+                              <div className="font-medium">{item.name}</div>
+                              {item.desc && <div className="text-sm text-amber-300/70 mt-1">{item.desc}</div>}
+                            </div>
+                            <div className="text-amber-400 font-bold text-lg whitespace-nowrap mr-4">{item.price} ج</div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Items with multiple sizes */}
+                    {section.items && section.items[0]?.sizes && (
+                      <div className="space-y-2">
+                        {section.items.map((item, idx) => (
+                          <div key={idx} className="bg-slate-700/30 rounded-lg p-3 hover:bg-slate-700/50 transition">
+                            <div className="text-white font-medium mb-2">{item.name}</div>
+                            <div className="grid grid-cols-3 gap-2 text-sm">
+                              <div className="text-center">
+                                <div className="text-amber-300 text-xs mb-1">صغير</div>
+                                <div className="text-amber-400 font-bold">{item.sizes.small} ج</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-amber-300 text-xs mb-1">وسط</div>
+                                <div className="text-amber-400 font-bold">{item.sizes.medium} ج</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-amber-300 text-xs mb-1">كبير</div>
+                                <div className="text-amber-400 font-bold">{item.sizes.large} ج</div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Items with medium/large prices only */}
+                    {section.items && section.items[0]?.prices && (
+                      <div className="space-y-2">
+                        {section.items.map((item, idx) => (
+                          <div key={idx} className="bg-slate-700/30 rounded-lg p-3 hover:bg-slate-700/50 transition">
+                            <div className="text-white font-medium mb-2">{item.name}</div>
+                            <div className="grid grid-cols-2 gap-2 text-sm">
+                              <div className="text-center">
+                                <div className="text-amber-300 text-xs mb-1">وسط</div>
+                                <div className="text-amber-400 font-bold">{item.prices.medium} ج</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="text-amber-300 text-xs mb-1">كبير</div>
+                                <div className="text-amber-400 font-bold">{item.prices.large} ج</div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Footer */}
+          <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-amber-600 to-amber-700 text-white text-center py-4 shadow-2xl">
+            <div className="flex items-center justify-center gap-2">
+              <span className="text-2xl">🚚</span>
+              <p className="font-bold text-lg">توصيل متاح لجميع المناطق</p>
+            </div>
+          </div>
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<JooMixMenu />);
+  </script>
+</body>
+</html>
