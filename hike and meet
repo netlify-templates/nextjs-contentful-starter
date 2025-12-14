@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions | Hike & Meet</title>
+  <meta name="description" content="Hike & Meet Terms & Conditions – Important information for event participants." />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green-dark: #14532d;
+      --green-main: #1f7a4d;
+      --green-soft: #ecfdf5;
+      --text-dark: #1f2933;
+      --text-muted: #4b5563;
+      --bg-main: #f7f7f5;
+      --white: #ffffff;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, var(--green-main), var(--green-dark));
+      color: white;
+      padding: 50px 20px 60px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1rem;
+      opacity: 0.95;
+      margin: 0;
+    }
+
+    .nav-link {
+      display: inline-block;
+      margin-top: 15px;
+      color: #d1fae5;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-link:hover {
+      color: white;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: var(--green-dark);
+      margin-top: 28px;
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    strong {
+      color: var(--text-dark);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 22px;
+      background-color: #0f3d24;
+      color: #d1fae5;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 40px 20px 50px; }
+      .card { padding: 26px; }
+      section { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Terms & Conditions</h1>
+  <p>Hike & Meet Event</p>
+  <a href="index.html" class="nav-link">← Back to Event</a>
+</header>
+
+<section>
+  <div class="card">
+    <h2>Voluntary Participation & Liability</h2>
+    <p>
+      Participation in the Hike & Meet event is <strong>free and voluntary</strong>. All participants take part at their own risk. The organisers will not be held liable for any injury, loss, damage, or illness sustained before, during, or after the hike.
+    </p>
+
+    <h2>Health & Safety Requirements</h2>
+    <p>
+      Participants must be <strong>physically fit to complete a 4 km hike</strong> and are responsible for their own health and safety. Those with medical conditions should consult a healthcare professional before attending. <strong>Bringing a personal first aid kit is compulsory</strong>.
+    </p>
+
+    <h2>Age Requirements</h2>
+    <p>
+      Participants aged <strong>13 to 17 must attend with a responsible adult</strong>. All instructions from event organisers must be followed at all times.
+    </p>
+
+    <h2>Transport Arrangements</h2>
+    <p>
+      Transport arrangements are optional and available at a fee of <strong>R100 return</strong>. Transport fees must be paid by <strong>26 December 2025</strong>. <strong>No refunds will be issued once payment is made</strong>.
+    </p>
+
+    <h2>Photography & Media Consent</h2>
+    <p>
+      By attending, participants consent to <strong>photographs or videos taken during the event being used for promotional purposes</strong>.
+    </p>
+
+    <h2>Event Cancellation</h2>
+    <p>
+      The organisers reserve the right to <strong>change or cancel the event due to weather, safety concerns, or unforeseen circumstances</strong>.
+    </p>
+
+    <h2>Contact & Enquiries</h2>
+    <p>
+      For enquiries or transport arrangements, participants must contact the numbers provided at registration.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Hike & Meet. Discover nature, build community.</p>
+</footer>
+
+</body>
+</html>
