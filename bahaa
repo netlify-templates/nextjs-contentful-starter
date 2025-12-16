@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>ركن الحاره الشاميه</title>
+
+  <style>
+    :root{
+      --bg:#070a12;
+      --card: rgba(255,255,255,0.06);
+      --stroke: rgba(255,255,255,0.10);
+      --text:#eaf0ff;
+      --muted: rgba(234,240,255,0.65);
+      --shadow: 0 18px 60px rgba(0,0,0,0.55);
+      --r: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background: radial-gradient(1200px 700px at 20% -10%, #2b6cff33, transparent 55%),
+                  radial-gradient(900px 600px at 110% 15%, #ff2e9a25, transparent 50%),
+                  radial-gradient(1200px 900px at 50% 120%, #17e3ff20, transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    .bg-glow{
+      position:fixed; inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(700px 300px at 20% 10%, rgba(79,140,255,0.18), transparent 60%),
+        radial-gradient(700px 300px at 70% 0%, rgba(255,70,165,0.14), transparent 62%),
+        radial-gradient(900px 500px at 50% 100%, rgba(23,227,255,0.10), transparent 65%);
+      filter: blur(12px);
+    }
+
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 18px;
+      background: rgba(7,10,18,0.7);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--stroke);
+    }
+
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo-img{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      object-fit:cover;
+      border:1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+      background: rgba(255,255,255,0.06);
+    }
+    .brand-text h1{margin:0;font-size:16px;letter-spacing:0.2px}
+    .brand-text p{margin:2px 0 0;color:var(--muted);font-size:12px}
+
+    .actions{display:flex; gap:10px; align-items:center}
+
+    .btn{
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease, border .12s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,0.07)}
+    .btn:active{transform: translateY(0px) scale(0.99)}
+    .btn.full{width:100%}
+    .btn.primary{
+      border-color: rgba(79,140,255,0.40);
+      background: linear-gradient(135deg, rgba(79,140,255,0.32), rgba(255,70,165,0.18));
+    }
+    .btn.danger{
+      border-color: rgba(255,70,70,0.35);
+      background: rgba(255,70,70,0.10);
+    }
+    .btn.ghost{opacity:0.9}
+
+    .layout{
+      display:grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap:16px;
+      padding:16px;
+      max-width:1200px;
+      margin:0 auto 24px;
+    }
+
+    .panel{
+      background: var(--card);
+      border:1px solid var(--stroke);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .panel-head{
+      padding:14px 16px;
+      display:flex;align-items:center;justify-content:space-between;
+      border-bottom:1px solid var(--stroke);
+    }
+    .panel-head h2{margin:0;font-size:15px}
+    .hint{color:var(--muted);font-size:12px}
+
+    .search-row{
+      display:flex; gap:10px; align-items:center;
+      padding:12px 16px;
+      border-bottom:1px solid var(--stroke);
+    }
+    .search-row input{
+      flex:1;
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,0.25);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      outline:none;
+    }
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
+      color:var(--text);
+      padding:8px 10px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:12px;
+      user-select:none;
+    }
+    .chip.active{
+      border-color: rgba(23,227,255,0.35);
+      background: rgba(23,227,255,0.10);
+    }
+
+    .grid{
+      padding:16px;
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:12px;
+    }
+    .card{
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,0.20);
+      border-radius: 16px;
+      padding:12px;
+      cursor:pointer;
+      transition: transform .12s ease, background .12s ease;
+      user-select:none;
+    }
+    .card:hover{transform: translateY(-2px); background: rgba(255,255,255,0.06)}
+    .card .t{display:flex; align-items:center; justify-content:space-between; gap:8px}
+    .card .name{font-weight:900; font-size:14px}
+    .card .price{color:rgba(255,255,255,0.88); font-weight:900}
+    .tag{
+      display:inline-block;
+      margin-top:8px;
+      padding:6px 9px;
+      font-size:11px;
+      border-radius:999px;
+      color:var(--muted);
+      border:1px solid var(--stroke);
+    }
+
+    .cart{position:relative}
+    .delivery-card{
+      padding:12px 16px;
+      border-bottom:1px solid var(--stroke);
+    }
+    .toggle{display:flex;gap:10px;align-items:center;justify-content:space-between}
+    .toggle .title{font-weight:900}
+    .toggle .sub{color:var(--muted);font-size:12px}
+
+    .switch{position:relative;display:inline-block;width:54px;height:30px}
+    .switch input{display:none}
+    .slider{
+      position:absolute;cursor:pointer;inset:0;
+      background: rgba(255,255,255,0.12);
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      transition:.2s;
+    }
+    .slider:before{
+      content:"";
+      position:absolute;height:24px;width:24px;left:3px;top:2px;
+      background: rgba(255,255,255,0.86);
+      border-radius:50%;
+      transition:.2s;
+    }
+    .switch input:checked + .slider{
+      background: rgba(79,140,255,0.25);
+      border-color: rgba(79,140,255,0.35);
+    }
+    .switch input:checked + .slider:before{transform: translateX(24px)}
+
+    .row{margin-top:10px;display:flex;align-items:center;justify-content:space-between}
+    .mini{color:var(--muted);font-size:12px}
+    .pill{
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,0.22);
+      font-size:12px;
+    }
+
+    .cart-list{
+      padding:12px 16px;
+      min-height: 220px;
+    }
+    .cart-list.empty{display:grid; place-items:center}
+    .empty-state{text-align:center; color:var(--muted)}
+    .empty-state .emoji{font-size:36px}
+    .empty-state .t1{margin-top:8px;color:rgba(255,255,255,0.85);font-weight:900}
+    .empty-state .t2{margin-top:4px;font-size:12px}
+
+    .item{
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,0.22);
+      border-radius: 16px;
+      padding:12px;
+      margin-bottom:10px;
+    }
+    .item-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+    .item-name{font-weight:900}
+    .item-meta{color:var(--muted);font-size:12px;margin-top:6px;line-height:1.5}
+    .item-actions{display:flex; gap:8px; align-items:center}
+    .icon{
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
+      cursor:pointer;
+      user-select:none;
+    }
+    .icon:hover{background: rgba(255,255,255,0.08)}
+    .qty{
+      display:flex; gap:6px; align-items:center; margin-top:10px
+    }
+    .qty .qbtn{
+      width:34px;height:34px;border-radius:12px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
+      color:var(--text);
+      cursor:pointer;
+      user-select:none;
+    }
+    .qty .qnum{min-width:30px;text-align:center;font-weight:900}
+    .item-total{margin-top:10px; display:flex; justify-content:space-between; color:rgba(255,255,255,0.9)}
+    .item-total b{font-weight:900}
+
+    .totals{
+      padding:12px 16px 16px;
+      border-top:1px solid var(--stroke);
+    }
+    .line{display:flex;justify-content:space-between;margin:8px 0;color:rgba(255,255,255,0.85)}
+    .line.big{font-size:16px}
+    .note{
+      width:100%;
+      margin:10px 0 10px;
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,0.25);
+      color:var(--text);
+      border-radius:14px;
+      padding:10px 12px;
+      outline:none;
+      resize:vertical;
+    }
+
+    .modal{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      z-index:99;
+    }
+    .modal.show{display:flex}
+    .modal-card{
+      width:min(560px, 100%);
+      background: rgba(10,14,24,0.86);
+      border:1px solid var(--stroke);
+      border-radius: 20px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.65);
+      overflow:hidden;
+    }
+    .modal-head{
+      padding:14px 16px;
+      border-bottom:1px solid var(--stroke);
+      display:flex;justify-content:space-between;align-items:center;
+    }
+    .m-title{font-weight:900}
+    .m-sub{color:var(--muted);font-size:12px;margin-top:4px}
+    .icon-btn{
+      width:36px;height:36px;border-radius:14px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
+      color:var(--text);
+      cursor:pointer;
+      user-select:none;
+    }
+    .modal-body{padding:14px 16px}
+    .qty-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px}
+    .qty-btn{
+      width:44px;height:44px;border-radius:16px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
+      color:var(--text);
+      cursor:pointer;
+      font-size:18px;
+      user-select:none;
+    }
+    .qty-box{
+      width:140px;
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,0.25);
+      border-radius:16px;
+      padding:10px 12px;
+      text-align:center;
+    }
+    .qty-label{color:var(--muted);font-size:12px}
+    .qty-value{font-weight:900;font-size:18px;margin-top:4px}
+
+    .block{margin-top:12px}
+    .block-title{font-weight:900;margin-bottom:8px}
+    .opts{display:flex;flex-wrap:wrap;gap:8px}
+    .opt{
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.04);
+      border-radius:999px;
+      padding:8px 10px;
+      font-size:12px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .opt.on{
+      border-color: rgba(23,227,255,0.35);
+      background: rgba(23,227,255,0.10);
+    }
+    .checkline{
+      display:flex; gap:10px; align-items:center;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,0.03);
+      border-radius:16px;
+      padding:10px 12px;
+    }
+    .modal-foot{padding:12px 16px;border-top:1px solid var(--stroke)}
+
+    @media (max-width: 980px){
+      .layout{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-glow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <!-- هون حط رابط اللوغو -->
+      <img class="logo-img" src="images.jpg" alt="Logo" />
+      <div class="brand-text">
+        <h1>ركن الحاره الشاميه</h1>
+        <p>ساندويشات بطعم الشام الأصيل</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btnScrollCart" class="btn ghost">السلة</button>
+      <button id="btnSendTop" class="btn primary">إرسال واتساب</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <div class="panel-head">
+        <h2>المنيو</h2>
+        <div class="hint">اضغط على أي صنف للإضافة / التخصيص</div>
+      </div>
+
+      <div class="search-row">
+        <input id="searchInput" type="text" placeholder="ابحث عن صنف..." />
+        <div class="chips">
+          <button class="chip active" data-filter="all">الكل</button>
+          <button class="chip" data-filter="sandwich">ساندويش</button>
+          <button class="chip" data-filter="plate">صحون</button>
+        </div>
+      </div>
+
+      <div id="menuGrid" class="grid"></div>
+    </section>
+
+    <section class="panel cart" id="cartPanel">
+      <div class="panel-head">
+        <h2>سلة الطلب</h2>
+        <div class="hint" id="cartCount">0 أصناف</div>
+      </div>
+
+      <div class="delivery-card">
+        <div class="toggle">
+          <label class="switch">
+            <input type="checkbox" id="deliveryToggle">
+            <span class="slider"></span>
+          </label>
+          <div>
+            <div class="title">دليفري</div>
+            <div class="sub">داخل عنبتا +5ش</div>
+          </div>
+        </div>
+
+        <div class="row">
+          <label class="mini">النوع</label>
+          <div id="deliveryTypeText" class="pill">استلام</div>
+        </div>
+      </div>
+
+      <div id="cartList" class="cart-list empty">
+        <div class="empty-state">
+          <div class="emoji">🧺</div>
+          <div class="t1">السلة فاضية</div>
+          <div class="t2">اختار من المنيو وبلّش طلبك</div>
+        </div>
+      </div>
+
+      <div class="totals">
+        <div class="line"><span>المجموع</span><b id="subtotal">0ش</b></div>
+        <div class="line"><span>الدليفري</span><b id="deliveryFee">0ش</b></div>
+        <div class="line big"><span>الإجمالي</span><b id="grandTotal">0ش</b></div>
+
+        <input id="customerName" class="note" placeholder="اسم الزبون (إجباري)" />
+        <input id="addressInput" class="note" placeholder="العنوان (إجباري في حال الدليفري)" style="display:none;" />
+        <textarea id="noteInput" class="note" rows="2" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+
+        <button id="btnSend" class="btn primary full">إرسال الطلب على واتساب</button>
+        <button id="btnClear" class="btn danger full">تفريغ السلة</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>
+          <div id="modalTitle" class="m-title">ساندويش</div>
+          <div id="modalPrice" class="m-sub">السعر: 0ش</div>
+        </div>
+        <button class="icon-btn" id="modalClose" aria-label="close">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="qty-row">
+          <button class="qty-btn" id="qtyMinus">−</button>
+          <div class="qty-box">
+            <div class="qty-label">العدد</div>
+            <div id="qtyValue" class="qty-value">1</div>
+          </div>
+          <button class="qty-btn" id="qtyPlus">+</button>
+        </div>
+
+        <div class="block">
+          <div class="block-title">السلطات</div>
+          <div id="saladsWrap" class="opts"></div>
+        </div>
+
+        <div class="block">
+          <div class="block-title">الصوصات</div>
+          <div id="saucesWrap" class="opts"></div>
+        </div>
+
+        <div class="block">
+          <label class="checkline">
+            <input type="checkbox" id="extraCheese">
+            <span>إضافة شريحة جبنة (+1ش)</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="modal-foot">
+        <button id="btnAddToCart" class="btn primary full">إضافة للسلة</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const PHONE = "972569695914";
+
+    const MENU = [
+      { name: "ساندويش 136", price: 10, type: "sandwich" },
+      { name: "ساندويش زنجر", price: 9, type: "sandwich" },
+      { name: "ساندويش شنتسيل", price: 9, type: "sandwich" },
+      { name: "ساندويش كريسبي", price: 9, type: "sandwich" },
+      { name: "ساندويش برجر", price: 9, type: "sandwich" },
+      { name: "ساندويش تونا", price: 8, type: "sandwich" },
+      { name: "ساندويش أفوجادو", price: 5, type: "sandwich" },
+      { name: "ساندويش نقانق", price: 5, type: "sandwich" },
+      { name: "ساندويش بسطرما", price: 5, type: "sandwich" },
+      { name: "ساندويش بطاطا", price: 4, type: "sandwich" },
+      { name: "ساندويش جبنة", price: 4, type: "sandwich" },
+      { name: "صحن بطاطا كبير", price: 12, type: "plate" },
+      { name: "صحن بطاطا صغير", price: 5, type: "plate" },
+    ];
+
+    const SALADS = ["خس","بندوره","ملفوف احمر","ملفوف ابيض","مخلل","جرجير"];
+    const SAUCES = ["كاتشاب","مايونيز","تاكس","جبنه","خردل"];
+
+    const deliveryToggle = document.getElementById("deliveryToggle");
+    const deliveryTypeText = document.getElementById("deliveryTypeText");
+
+    const menuGrid = document.getElementById("menuGrid");
+    const cartList = document.getElementById("cartList");
+    const cartCount = document.getElementById("cartCount");
+
+    const subtotalEl = document.getElementById("subtotal");
+    const deliveryFeeEl = document.getElementById("deliveryFee");
+    const grandTotalEl = document.getElementById("grandTotal");
+
+    const searchInput = document.getElementById("searchInput");
+    const chips = [...document.querySelectorAll(".chip")];
+
+    const btnSend = document.getElementById("btnSend");
+    const btnSendTop = document.getElementById("btnSendTop");
+    const btnClear = document.getElementById("btnClear");
+    const btnScrollCart = document.getElementById("btnScrollCart");
+
+    const customerName = document.getElementById("customerName");
+    const addressInput = document.getElementById("addressInput");
+    const noteInput = document.getElementById("noteInput");
+
+    const modal = document.getElementById("modal");
+    const modalClose = document.getElementById("modalClose");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalPrice = document.getElementById("modalPrice");
+    const saladsWrap = document.getElementById("saladsWrap");
+    const saucesWrap = document.getElementById("saucesWrap");
+    const extraCheese = document.getElementById("extraCheese");
+    const qtyMinus = document.getElementById("qtyMinus");
+    const qtyPlus = document.getElementById("qtyPlus");
+    const qtyValue = document.getElementById("qtyValue");
+    const btnAddToCart = document.getElementById("btnAddToCart");
+
+    let activeFilter = "all";
+    let cart = [];
+
+    let modalItem = null;
+    let modalQty = 1;
+    let modalSalads = new Set();
+    let modalSauces = new Set();
+    let editingIndex = null;
+
+    function money(n){ return `${n}ش`; }
+
+    function renderMenu(){
+      const q = searchInput.value.trim();
+      const filtered = MENU.filter(m => {
+        const byFilter = activeFilter === "all" ? true : m.type === activeFilter;
+        const bySearch = q ? m.name.includes(q) : true;
+        return byFilter && bySearch;
+      });
+
+      menuGrid.innerHTML = filtered.map(m => `
+        <div class="card" data-name="${m.name}">
+          <div class="t">
+            <div class="name">${m.name}</div>
+            <div class="price">${money(m.price)}</div>
+          </div>
+          <div class="tag">${m.type === "sandwich" ? "ساندويش (تخصيص)" : "صحن"}</div>
+        </div>
+      `).join("");
+
+      [...menuGrid.querySelectorAll(".card")].forEach(card => {
+        card.addEventListener("click", () => {
+          const name = card.getAttribute("data-name");
+          const item = MENU.find(x => x.name === name);
+          if(!item) return;
+          if(item.type === "sandwich") openModal(item, null);
+          else addPlate(item);
+        });
+      });
+    }
+
+    function addPlate(item){
+      const found = cart.find(c => c.name === item.name && c.type === "plate");
+      if(found) found.qty++;
+      else cart.push({ ...item, qty: 1, salads: [], sauces: [], extraCheese: false });
+      renderCart();
+    }
+
+    function openModal(item, indexToEdit){
+      modalItem = item;
+      editingIndex = indexToEdit;
+
+      if(indexToEdit === null){
+        modalQty = 1;
+        modalSalads = new Set();
+        modalSauces = new Set();
+        extraCheese.checked = false;
+        modalTitle.textContent = item.name;
+      }else{
+        const c = cart[indexToEdit];
+        modalQty = c.qty;
+        modalSalads = new Set(c.salads);
+        modalSauces = new Set(c.sauces);
+        extraCheese.checked = !!c.extraCheese;
+        modalTitle.textContent = item.name + " (تعديل)";
+      }
+
+      modalPrice.textContent = `السعر: ${money(item.price)}`;
+      qtyValue.textContent = modalQty;
+
+      saladsWrap.innerHTML = SALADS.map(s => {
+        const on = modalSalads.has(s) ? "on" : "";
+        return `<div class="opt ${on}" data-opt="${s}">${s}</div>`;
+      }).join("");
+
+      saucesWrap.innerHTML = SAUCES.map(s => {
+        const on = modalSauces.has(s) ? "on" : "";
+        return `<div class="opt ${on}" data-opt="${s}">${s}</div>`;
+      }).join("");
+
+      saladsWrap.querySelectorAll(".opt").forEach(el => el.addEventListener("click", () => toggleOpt(el, modalSalads)));
+      saucesWrap.querySelectorAll(".opt").forEach(el => el.addEventListener("click", () => toggleOpt(el, modalSauces)));
+
+      modal.classList.add("show");
+    }
+
+    function toggleOpt(el, set){
+      const val = el.getAttribute("data-opt");
+      if(set.has(val)){ set.delete(val); el.classList.remove("on"); }
+      else { set.add(val); el.classList.add("on"); }
+    }
+
+    function closeModal(){
+      modal.classList.remove("show");
+      modalItem = null;
+      editingIndex = null;
+    }
+
+    qtyMinus.addEventListener("click", () => {
+      modalQty = Math.max(1, modalQty - 1);
+      qtyValue.textContent = modalQty;
+    });
+    qtyPlus.addEventListener("click", () => {
+      modalQty = modalQty + 1;
+      qtyValue.textContent = modalQty;
+    });
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      if(e.target === modal) closeModal();
+    });
+
+    btnAddToCart.addEventListener("click", () => {
+      if(!modalItem) return;
+
+      const payload = {
+        ...modalItem,
+        qty: modalQty,
+        salads: [...modalSalads],
+        sauces: [...modalSauces],
+        extraCheese: extraCheese.checked
+      };
+
+      if(editingIndex === null) cart.push(payload);
+      else cart[editingIndex] = payload;
+
+      closeModal();
+      renderCart();
+    });
+
+    deliveryToggle.addEventListener("change", () => {
+      deliveryTypeText.textContent = deliveryToggle.checked ? "دليفري" : "استلام";
+      addressInput.style.display = deliveryToggle.checked ? "block" : "none";
+      renderTotals();
+    });
+
+    btnClear.addEventListener("click", () => {
+      cart = [];
+      renderCart();
+    });
+
+    btnScrollCart.addEventListener("click", () => {
+      document.getElementById("cartPanel").scrollIntoView({behavior:"smooth"});
+    });
+
+    chips.forEach(ch => {
+      ch.addEventListener("click", () => {
+        chips.forEach(x => x.classList.remove("active"));
+        ch.classList.add("active");
+        activeFilter = ch.getAttribute("data-filter");
+        renderMenu();
+      });
+    });
+
+    searchInput.addEventListener("input", renderMenu);
+
+    function renderCart(){
+      cartCount.textContent = `${cart.length} أصناف`;
+
+      if(cart.length === 0){
+        cartList.classList.add("empty");
+        cartList.innerHTML = `
+          <div class="empty-state">
+            <div class="emoji">🧺</div>
+            <div class="t1">السلة فاضية</div>
+            <div class="t2">اختار من المنيو وبلّش طلبك</div>
+          </div>
+        `;
+        renderTotals();
+        return;
+      }
+
+      cartList.classList.remove("empty");
+      cartList.innerHTML = cart.map((c, idx) => {
+        const unit = c.price + (c.extraCheese ? 1 : 0);
+        const line = unit * c.qty;
+
+        const meta = c.type === "sandwich"
+          ? `
+            <div class="item-meta">
+              سلطات: ${c.salads.length ? c.salads.join("، ") : "بدون"}<br/>
+              صوصات: ${c.sauces.length ? c.sauces.join("، ") : "بدون"}<br/>
+              جبنة: ${c.extraCheese ? "+1ش" : "بدون"}
+            </div>`
+          : `<div class="item-meta">صحن</div>`;
+
+        return `
+          <div class="item">
+            <div class="item-top">
+              <div>
+                <div class="item-name">${c.name}</div>
+                ${meta}
+              </div>
+              <div class="item-actions">
+                <div class="icon" data-act="edit" data-idx="${idx}" title="تعديل">✎</div>
+                <div class="icon" data-act="del" data-idx="${idx}" title="حذف">🗑</div>
+              </div>
+            </div>
+
+            <div class="qty">
+              <button class="qbtn" data-act="minus" data-idx="${idx}">−</button>
+              <div class="qnum">${c.qty}</div>
+              <button class="qbtn" data-act="plus" data-idx="${idx}">+</button>
+            </div>
+
+            <div class="item-total">
+              <span>مجموع الصنف</span>
+              <b>${money(line)}</b>
+            </div>
+          </div>
+        `;
+      }).join("");
+
+      cartList.querySelectorAll("[data-act]").forEach(el => {
+        el.addEventListener("click", () => {
+          const act = el.getAttribute("data-act");
+          const idx = +el.getAttribute("data-idx");
+          if(Number.isNaN(idx)) return;
+
+          if(act === "del"){
+            cart.splice(idx, 1);
+            renderCart();
+            return;
+          }
+          if(act === "minus"){
+            cart[idx].qty--;
+            if(cart[idx].qty <= 0) cart.splice(idx, 1);
+            renderCart();
+            return;
+          }
+          if(act === "plus"){
+            cart[idx].qty++;
+            renderCart();
+            return;
+          }
+          if(act === "edit"){
+            if(cart[idx].type === "sandwich"){
+              openModal({ name: cart[idx].name, price: cart[idx].price, type: "sandwich" }, idx);
+            }
+          }
+        });
+      });
+
+      renderTotals();
+    }
+
+    function calcSubtotal(){
+      return cart.reduce((sum, c) => {
+        const unit = c.price + (c.extraCheese ? 1 : 0);
+        return sum + unit * c.qty;
+      }, 0);
+    }
+
+    function renderTotals(){
+      const sub = calcSubtotal();
+      const del = deliveryToggle.checked ? 5 : 0;
+      const total = sub + del;
+
+      subtotalEl.textContent = money(sub);
+      deliveryFeeEl.textContent = money(del);
+      grandTotalEl.textContent = money(total);
+    }
+
+    function buildWhatsAppText(){
+      const sub = calcSubtotal();
+      const del = deliveryToggle.checked ? 5 : 0;
+      const total = sub + del;
+
+      let text = "📍 ركن الحاره الشاميه\n";
+      text += "طلب جديد 🥙🔥\n";
+      text += "------------------\n";
+
+      cart.forEach(c => {
+        const unit = c.price + (c.extraCheese ? 1 : 0);
+        text += `• ${c.name} x${c.qty}\n`;
+        text += `  سعر الوحدة: ${c.price}ش + جبنة: ${c.extraCheese ? "1ش" : "0"} = ${unit}ش\n`;
+
+        if(c.type === "sandwich"){
+          text += `  سلطات: ${c.salads.length ? c.salads.join("، ") : "بدون"}\n`;
+          text += `  صوصات: ${c.sauces.length ? c.sauces.join("، ") : "بدون"}\n`;
+        }
+
+        text += `  مجموع الصنف: ${unit * c.qty}ش\n\n`;
+      });
+
+      text += "------------------\n";
+      text += `اسم الزبون: ${customerName.value.trim()}\n`;
+      text += `النوع: ${deliveryToggle.checked ? "دليفري (عنبتا)" : "استلام"}\n`;
+
+      if(deliveryToggle.checked){
+        text += `العنوان: ${addressInput.value.trim()}\n`;
+        text += `رسوم الدليفري: ${del}ش\n`;
+      }
+
+      if(noteInput.value.trim()){
+        text += `ملاحظات: ${noteInput.value.trim()}\n`;
+      }
+
+      text += "------------------\n";
+      text += `المجموع: ${sub}ش\n`;
+      text += `الإجمالي: ${total}ش\n`;
+
+      return text;
+    }
+
+    function sendWhatsApp(){
+      if(cart.length === 0){
+        alert("السلة فاضية! اختار أصناف أولاً.");
+        return;
+      }
+
+      if(customerName.value.trim() === ""){
+        alert("اسم الزبون إجباري");
+        customerName.focus();
+        return;
+      }
+
+      if(deliveryToggle.checked && addressInput.value.trim() === ""){
+        alert("العنوان إجباري في حال الدليفري");
+        addressInput.focus();
+        return;
+      }
+
+      const msg = buildWhatsAppText();
+      const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
+      window.open(url, "_blank");
+    }
+
+    btnSend.addEventListener("click", sendWhatsApp);
+    btnSendTop.addEventListener("click", sendWhatsApp);
+
+    renderMenu();
+    renderCart();
+    renderTotals();
+  </script>
+</body>
+</html>
