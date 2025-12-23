@@ -1,101 +1,71 @@
-# Netlify Next.js + Contentful Minimal Starter
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treasure Chinchin | Order Now</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --gold: #f8b400; --orange: #d44000; --whatsapp: #25D366; }
+        body { background-color: var(--gold); font-family: 'Poppins', sans-serif; margin: 0; padding: 15px; display: flex; justify-content: center; }
+        .container { width: 100%; max-width: 450px; background: white; padding: 30px 15px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        
+        h1 { color: var(--orange); margin: 0; font-size: 1.8rem; text-transform: uppercase; }
+        .tagline { font-size: 0.9rem; color: #555; margin-bottom: 25px; }
 
-![Screenshot](https://assets.stackbit.com/docs/tutorial-shared-thumb.png)
+        /* Order Buttons */
+        .instruction { font-weight: 800; color: var(--orange); margin-bottom: 10px; font-size: 1rem; }
+        .btn { display: block; text-decoration: none; padding: 18px; margin-bottom: 15px; border-radius: 12px; font-size: 1.1rem; font-weight: 800; transition: 0.2s; text-align: center; }
+        .whatsapp-btn { background: var(--whatsapp); color: white; border-bottom: 4px solid #128C7E; }
+        .call-btn { background: var(--orange); color: white; border-bottom: 4px solid #a33100; }
+        
+        /* About Us & FAQ Sections */
+        .info-box { text-align: left; background: #fffcf0; padding: 15px; border-radius: 12px; margin-top: 25px; border: 1px solid #ffeeba; }
+        h2 { font-size: 1.1rem; color: var(--orange); margin-top: 0; border-bottom: 2px solid var(--gold); display: inline-block; }
+        p, li { font-size: 0.85rem; color: #444; line-height: 1.5; }
+        .faq-q { font-weight: 700; color: #222; display: block; margin-top: 10px; }
 
-**⚡ View demo:** [nextjs-contentful-starter.netlify.app](https://nextjs-contentful-starter.netlify.app/)
+        footer { margin-top: 25px; font-size: 0.75rem; opacity: 0.6; text-align: center; }
+    </style>
+</head>
+<body>
 
-## Prerequisites
+<div class="container">
+    <h1>Treasure Chinchin</h1>
+    <p class="tagline">The Crunchiest, Milkiest Snacks in Lagos! ✨</p>
 
-Before you begin, please make sure you have the following:
-
-- [Netlify account](https://www.netlify.com/)
-- [Contentful account](https://www.contentful.com/)
-- GitHub, GitLab or Bitbucket account
-- Node v18+ or later
-- (optional) [nvm](https://github.com/nvm-sh/nvm) for Node version management.
-
-## Getting Started
-
-### Clone this repository
-
-Fork and clone your repository, then run `npm install` in its root directory.
-
-### Create Contentful Space
-
-After signing into Contentful, create a new space. 
-
-### Generate Management Token
-
-If you don't already have a management token (or _personal access token_), generate one. To do so, go into your new empty space, then:
-
-1. Click _Settings_
-1. Choose _API Keys_
-1. Select the _Content management tokens_ tab
-1. Click the button to generate a new token
-
-![Generate content management token](./docs/generate-mgmt-token.png)
-
-### Generate Preview & Delivery API Keys
-
-From the same place you generated the management token, you can now generate API access keys.
-
-1. Select the *content delivery / preview tokens* tab
-1. Choose *Add API key*
-
-### Set Environment Variables
-
-In your project, duplicate `.env.example` to `.env`. 
-
-Fill in the values in the file based on the keys you've created. 
-
-Note: the Contentful space ID can be viewed and copied via *Settings->General Settings* in Contentful.
-
-### Import Content
-
-Import the provided content models & content into Contentful by running the `import.js` script:
-
-    npm run import
-
-If the import fails to run, make sure that you've run `npm install` and that all keys in your `.env` file are set correctly.
-
-### Run the Website
-
-Run the Next.js development server:
-
-    npm run dev
-
-Visit [localhost:3000](http://localhost:3000) and you should see the example content you imported into your new Contentful space.
-
-### Run Netlify Visual Editor in Local Development Mode
-
-Keep the Next.js development server running, and open a new command-line window in the same directory.
-
-Install Stackbit's CLI tools (once):
+    <div class="instruction">👇 CLICK BELOW TO ORDER NOW</div>
     
-    npm i -g @stackbit/cli@latest
+    <a href="https://wa.me/2347049301909?text=Hello!%20I%20want%20to%20order%20Treasure%20Chinchin" class="btn whatsapp-btn">
+        📩 ORDER ON WHATSAPP
+    </a>
 
-Run the CLI:
+    <a href="tel:07049301909" class="btn call-btn">
+        📞 CALL: 07049301909
+    </a>
 
-    stackbit dev
+    <div class="info-box">
+        <h2>Our Story</h2>
+        <p>At <strong>Treasure Chinchin</strong>, we craft every bag with love. Our mission is to bring you the perfect golden-brown crunch for every occasion—tea time, movie nights, or parties!</p>
+    </div>
 
-Click the displayed link to [localhost:8090/_stackbit](http://localhost:8090/_stackbit) and the visual editor will open.
+    <div class="info-box">
+        <h2>FAQs</h2>
+        <span class="faq-q">📍 Do you deliver?</span>
+        <span>Yes! Nationwide delivery available.</span>
+        
+        <span class="faq-q">⏳ How long does it stay fresh?</span>
+        <span>Stays crunchy for up to 3 months if sealed.</span>
+        
+        <span class="faq-q">📦 Bulk orders?</span>
+        <span>Yes! We cater for weddings and birthdays.</span>
+    </div>
 
-### Create a Cloud-Based Netlify Project
+    <footer>
+        &copy; 2025 Treasure Chinchin <br>
+        Quality & Hygiene Guaranteed
+    </footer>
+</div>
 
-To deploy a cloud-based Netlify project your need to connected your repository to Netlify:
-
-1. If you haven't created your GitHub project repository, create it and push your code to GitHub
-2. Open the [app.netlify.com](https://app.netlify.com/), and choose "Import from Git" in the "Import an existing project" section
-3. In the "Configure site and deploy" step you will see the "Visual editor" section. To make it work, you will need to install "Netlify Visual Editor GitHub App" in your GitHub account.
-4. Deploy your project
-
-## Next Steps
-
-Here are a few suggestions on what to do next if you're new to Netlify visual editor:
-
-- Learn [how Netlify visual editor works](https://docs.netlify.com/visual-editor/overview/)
-- Check [Netlify visual editor reference documentation](https://visual-editor-reference.netlify.com/)
-
-## Support
-
-If you get stuck along the way, get help in our [support forums](https://answers.netlify.com/).
+</body>
+</html>
