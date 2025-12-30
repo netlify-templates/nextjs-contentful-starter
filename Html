@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube shopping store| 17 फरवरी सेल</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #f9f9f9; }
+        
+        /* Header */
+        header { background: #fff; padding: 20px; text-align: center; border-bottom: 2px solid #eee; position: sticky; top: 0; z-index: 100; }
+        nav a { margin: 0 15px; text-decoration: none; color: #333; font-weight: bold; }
+
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80'); 
+                height: 400px; background-size: cover; background-position: center; 
+                display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; background: #ff4757; padding: 5px 15px; border-radius: 5px; }
+
+        /* Product Section */
+        .container { max-width: 1100px; margin: 50px auto; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background: white; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+        .card img { width: 100%; border-radius: 8px; height: 250px; object-fit: cover; }
+        .card h3 { margin: 15px 0 5px; color: #333; }
+        .card .price { color: #ff4757; font-weight: bold; font-size: 1.2rem; }
+        .buy-btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #2f3542; color: white; text-decoration: none; border-radius: 5px; }
+        
+        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#">होम</a>
+            <a href="#">पुरुष</a>
+            <a href="#">महिलाएं</a>
+            <a href="#">संपर्क</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Grand Launch: 17 फरवरी</h1>
+        <p>सभी कपड़ों पर 50% तक की छूट!</p>
+    </div>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 40px;">हमारे नए कलेक्शन</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=500&q=80" alt="Tshirt">
+                <h3>कॉटन टी-शर्ट</h3>
+                <p class="price">₹499</p>
+                <a href="#" class="buy-btn">अभी खरीदें</a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=500&q=80" alt="Jeans">
+                <h3>डेनिम जींस</h3>
+                <p class="price">₹1,299</p>
+                <a href="#" class="buy-btn">अभी खरीदें</a>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=500&q=80" alt="Jacket">
+                <h3>विंटर जैकेट</h3>
+                <p class="price">₹2,499</p>
+                <a href="#" class="buy-btn">अभी खरीदें</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 आपका स्टोर नेम | 17 फरवरी की खास पेशकश</p>
+    </footer>
+
+</body>
+</html>
