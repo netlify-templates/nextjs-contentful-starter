@@ -9,14 +9,13 @@ export const Stats = (props) => {
   return (
     <div
       className={`px-6 py-16 text-center ${themeClassMap[props.theme] ?? themeClassMap['primary']} sm:px-12 sm:py-24`}
-      data-sb-object-id={props.id}
     >
       <div className="mx-auto">
         <div className="mb-16">
-          <h2 className="mb-4 text-4xl font-bold sm:text-5xl" data-sb-field-path="heading">
+          <h2 className="mb-4 text-4xl font-bold sm:text-5xl">
             {props.heading}
           </h2>
-          {props.body && <Markdown options={{ forceBlock: true }} className="sm:text-lg" data-sb-field-path="body">
+          {props.body && <Markdown options={{ forceBlock: true }} className="sm:text-lg">
             {props.body}
           </Markdown>}
         </div>
@@ -30,11 +29,11 @@ export const Stats = (props) => {
 
 const StatItem = (props) => {
   return (
-    <div data-sb-object-id={props.id}>
-      <div className="mb-3 text-4xl font-bold sm:text-5xl" data-sb-field-path="value">
+    <div>
+      <div className="mb-3 text-4xl font-bold sm:text-5xl">
         {props.value}
       </div>
-      <div data-sb-field-path="label">{props.label}</div>
+      <div>{props.label}</div>
     </div>
   );
 };

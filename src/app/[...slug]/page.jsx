@@ -21,7 +21,7 @@ export default async function ComposablePage({ params }) {
     }
 
     return (
-      <div data-sb-object-id={page.id}>
+      <div>
         {(page.sections || []).map((section, idx) => {
           const Component = componentMap[section.type];
           return <Component key={idx} {...section} />;

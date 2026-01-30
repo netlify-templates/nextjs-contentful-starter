@@ -1,6 +1,6 @@
-# Netlify Next.js + Contentful Minimal Starter
+# Next.js + Contentful Minimal Starter
 
-![Screenshot](https://assets.stackbit.com/docs/tutorial-shared-thumb.png)
+A minimal starter for building websites with Next.js and Contentful CMS.
 
 **⚡ View demo:** [nextjs-contentful-starter.netlify.app](https://nextjs-contentful-starter.netlify.app/)
 
@@ -66,35 +66,30 @@ Run the Next.js development server:
 
 Visit [localhost:3000](http://localhost:3000) and you should see the example content you imported into your new Contentful space.
 
-### Run Netlify Visual Editor in Local Development Mode
+### Deploy to Netlify
 
-Keep the Next.js development server running, and open a new command-line window in the same directory.
+To deploy your site to Netlify:
 
-Install Stackbit's CLI tools (once):
-    
-    npm i -g @stackbit/cli@latest
-
-Run the CLI:
-
-    stackbit dev
-
-Click the displayed link to [localhost:8090/_stackbit](http://localhost:8090/_stackbit) and the visual editor will open.
-
-### Create a Cloud-Based Netlify Project
-
-To deploy a cloud-based Netlify project your need to connected your repository to Netlify:
-
-1. If you haven't created your GitHub project repository, create it and push your code to GitHub
-2. Open the [app.netlify.com](https://app.netlify.com/), and choose "Import from Git" in the "Import an existing project" section
-3. In the "Configure site and deploy" step you will see the "Visual editor" section. To make it work, you will need to install "Netlify Visual Editor GitHub App" in your GitHub account.
-4. Deploy your project
+1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket)
+2. Log in to [app.netlify.com](https://app.netlify.com/)
+3. Click "Import from Git" or "Add new site"
+4. Select your repository
+5. Configure your build settings:
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+6. Add your environment variables in the Netlify dashboard (Settings > Environment variables):
+   - `CONTENTFUL_SPACE_ID`
+   - `CONTENTFUL_DELIVERY_TOKEN`
+   - `CONTENTFUL_PREVIEW_TOKEN`
+7. Deploy your site
 
 ## Next Steps
 
-Here are a few suggestions on what to do next if you're new to Netlify visual editor:
+Here are a few suggestions on what to do next:
 
-- Learn [how Netlify visual editor works](https://docs.netlify.com/visual-editor/overview/)
-- Check [Netlify visual editor reference documentation](https://visual-editor-reference.netlify.com/)
+- Explore the [Contentful documentation](https://www.contentful.com/developers/docs/) to learn more about content modeling
+- Check out the [Next.js documentation](https://nextjs.org/docs) to understand the framework better
+- Learn about [Netlify deployment options](https://docs.netlify.com/)
 
 ## Support
 
