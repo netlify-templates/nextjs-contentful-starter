@@ -1,101 +1,86 @@
-# Netlify Next.js + Contentful Minimal Starter
+# Rappuarvio
 
-![Screenshot](https://assets.stackbit.com/docs/tutorial-shared-thumb.png)
+Rappuarvio on suomalainen arvostelualusta kerrostaloille – vähän kuin Google Reviews,
+mutta kerrostaloille. Nykyiset ja entiset asukkaat arvioivat taloja klikkaamalla
+tähtiä muutamassa kategoriassa (äänieristys, rauhallisuus, ympäristö, kunnossapito,
+turvallisuus, liikenneyhteydet) ja voivat halutessaan jättää myös kirjallisen
+arvion. Käyttäjät voivat hakea taloja osoitteella, postinumerolla tai kaupungilla, ja
+ehdottaa uusia taloja lisättäväksi. Moderaattori tarkistaa ja hyväksyy/hylkää kaikki
+uudet talo-ehdotukset ennen julkaisua, ja järjestelmä estää saman talon lisäämisen
+kahteen kertaan.
 
-**⚡ View demo:** [nextjs-contentful-starter.netlify.app](https://nextjs-contentful-starter.netlify.app/)
+## Tekninen toteutus
 
-## Prerequisites
+- **Next.js 15** (App Router) + React 18, Tailwind CSS 4
+- **PostgreSQL** + **Prisma ORM** tietovarastona
+- **NextAuth** (credentials-kirjautuminen, bcrypt-salasanat, roolit `USER`/`ADMIN`)
 
-Before you begin, please make sure you have the following:
+## Ominaisuudet
 
-- [Netlify account](https://www.netlify.com/)
-- [Contentful account](https://www.contentful.com/)
-- GitHub, GitLab or Bitbucket account
-- Node v18+ or later
-- (optional) [nvm](https://github.com/nvm-sh/nvm) for Node version management.
+- 🔍 Haku osoitteella / postinumerolla / kaupungilla, esim. "Sihtikuja 1, 90520, Oulu"
+- ⭐ Arvostelu klikkaamalla 1–5 tähteä kuudessa kategoriassa + vapaaehtoiset
+  kysymykset "Mikä oli hyvää", "Mikä oli huonoa" ja vapaa kommentti
+- 🏠 Käyttäjät voivat ehdottaa puuttuvaa taloa – järjestelmä estää kaksoiskappaleet
+  osoitteen/postinumeron/kaupungin perusteella
+- 🛠️ Moderointinäkymä (`/admin`), jossa admin voi muokata tietoja ja
+  hyväksyä/hylätä ehdotukset ennen julkaisua
+- 👤 Yksi arvostelu käyttäjää kohden per talo (voi päivittää myöhemmin)
 
-## Getting Started
+## Kehitysympäristön käyttöönotto
 
-### Clone this repository
+### 1. Riippuvuudet
 
-Fork and clone your repository, then run `npm install` in its root directory.
+```bash
+npm install
+```
 
-### Create Contentful Space
+### 2. Tietokanta
 
-After signing into Contentful, create a new space. 
+Luo Postgres-tietokanta ja aseta yhteysosoite `.env`-tiedostoon (katso
+`.env.example`):
 
-### Generate Management Token
+```bash
+cp .env.example .env
+# muokkaa DATABASE_URL, NEXTAUTH_SECRET
+```
 
-If you don't already have a management token (or _personal access token_), generate one. To do so, go into your new empty space, then:
+Aja migraatiot ja (valinnaisesti) täytä esimerkkidatalla:
 
-1. Click _Settings_
-1. Choose _API Keys_
-1. Select the _Content management tokens_ tab
-1. Click the button to generate a new token
+```bash
+npx prisma migrate dev
+npm run db:seed
+```
 
-![Generate content management token](./docs/generate-mgmt-token.png)
+Siemendata luo ylläpitäjätunnuksen `admin@rappuarvio.fi` / `AdminSalasana123`,
+kaksi esimerkkikäyttäjää sekä muutaman esimerkkitalon (yksi odottaa moderointia
+`/admin`-näkymässä).
 
-### Generate Preview & Delivery API Keys
+### 3. Kehityspalvelin
 
-From the same place you generated the management token, you can now generate API access keys.
+```bash
+npm run dev
+```
 
-1. Select the *content delivery / preview tokens* tab
-1. Choose *Add API key*
+Sovellus löytyy osoitteesta [localhost:3000](http://localhost:3000).
 
-### Set Environment Variables
+## Tuotantoon vienti
 
-In your project, duplicate `.env.example` to `.env`. 
+`DATABASE_URL` tulee osoittaa oikeaan, pysyvään Postgres-tietokantaan (esim. Neon,
+Supabase, Railway tai RDS) – paikallinen SQLite/tiedostopohjainen tietokanta ei
+toimi serverless-ympäristöissä (esim. Netlify Functions), koska tiedostojärjestelmä
+ei säily kutsujen välillä. Aseta myös tuotanto-`NEXTAUTH_SECRET` (esim.
+`openssl rand -base64 32`) ja `NEXTAUTH_URL` sivuston osoitteeksi.
 
-Fill in the values in the file based on the keys you've created. 
+```bash
+npm run build
+npm run start
+```
 
-Note: the Contentful space ID can be viewed and copied via *Settings->General Settings* in Contentful.
+## Tietomalli
 
-### Import Content
-
-Import the provided content models & content into Contentful by running the `import.js` script:
-
-    npm run import
-
-If the import fails to run, make sure that you've run `npm install` and that all keys in your `.env` file are set correctly.
-
-### Run the Website
-
-Run the Next.js development server:
-
-    npm run dev
-
-Visit [localhost:3000](http://localhost:3000) and you should see the example content you imported into your new Contentful space.
-
-### Run Netlify Visual Editor in Local Development Mode
-
-Keep the Next.js development server running, and open a new command-line window in the same directory.
-
-Install Stackbit's CLI tools (once):
-    
-    npm i -g @stackbit/cli@latest
-
-Run the CLI:
-
-    stackbit dev
-
-Click the displayed link to [localhost:8090/_stackbit](http://localhost:8090/_stackbit) and the visual editor will open.
-
-### Create a Cloud-Based Netlify Project
-
-To deploy a cloud-based Netlify project your need to connected your repository to Netlify:
-
-1. If you haven't created your GitHub project repository, create it and push your code to GitHub
-2. Open the [app.netlify.com](https://app.netlify.com/), and choose "Import from Git" in the "Import an existing project" section
-3. In the "Configure site and deploy" step you will see the "Visual editor" section. To make it work, you will need to install "Netlify Visual Editor GitHub App" in your GitHub account.
-4. Deploy your project
-
-## Next Steps
-
-Here are a few suggestions on what to do next if you're new to Netlify visual editor:
-
-- Learn [how Netlify visual editor works](https://docs.netlify.com/visual-editor/overview/)
-- Check [Netlify visual editor reference documentation](https://visual-editor-reference.netlify.com/)
-
-## Support
-
-If you get stuck along the way, get help in our [support forums](https://answers.netlify.com/).
+- `User` – käyttäjät, rooli `USER` tai `ADMIN`
+- `Building` – kerrostalo: osoite, postinumero, kaupunki, tila
+  (`PENDING`/`APPROVED`/`REJECTED`), sekä uniikki normalisoitu avain, joka estää
+  kaksoiskappaleet
+- `Review` – yhden käyttäjän arvostelu yhdestä talosta: kuusi 1–5-tähden
+  kategoria-arvosanaa sekä vapaaehtoiset tekstikentät

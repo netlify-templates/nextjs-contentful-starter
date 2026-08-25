@@ -1,0 +1,94 @@
+// Rappuarvio – Prisma schema
+// Datasource points at DATABASE_URL. Locally this is Postgres running in the
+// dev container; in production point it at a hosted Postgres (Neon, Supabase,
+// Railway, RDS, ...).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum BuildingStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum Residency {
+  CURRENT
+  FORMER
+}
+
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         Role     @default(USER)
+  createdAt    DateTime @default(now())
+
+  reviews            Review[]
+  submittedBuildings Building[] @relation("SubmittedBy")
+  moderatedBuildings Building[] @relation("ReviewedBy")
+}
+
+model Building {
+  id             String         @id @default(cuid())
+  address        String
+  postalCode     String
+  city           String
+  normalizedKey  String         @unique
+  status         BuildingStatus @default(PENDING)
+  moderatorNote  String?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  submittedById String?
+  submittedBy   User?   @relation("SubmittedBy", fields: [submittedById], references: [id])
+
+  reviewedById String?
+  reviewedBy   User?   @relation("ReviewedBy", fields: [reviewedById], references: [id])
+
+  reviews Review[]
+
+  @@index([city])
+  @@index([postalCode])
+  @@index([status])
+}
+
+model Review {
+  id String @id @default(cuid())
+
+  buildingId String
+  building   Building @relation(fields: [buildingId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  residency Residency
+
+  soundInsulation Int
+  quietness       Int
+  environment     Int
+  maintenance     Int
+  safety          Int
+  transport       Int
+
+  pros    String?
+  cons    String?
+  comment String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([buildingId, userId])
+}
